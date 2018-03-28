@@ -11,4 +11,12 @@ public class DataSourceMetadataQueryResult {
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
+
+    public DataSourceMetadataResult getResult() {
+        return result;
+    }
+
+    public void setResult(DataSourceMetadataResult result) {
+        this.result = result;
+    }
 }
