@@ -4,7 +4,7 @@ public class DoubleMaxAggregation extends Aggregation {
     private String fieldName;
 
     public DoubleMaxAggregation() {
-        setType("doubleMax");
+        super("doubleMax");
     }
 
     public String getFieldName() {

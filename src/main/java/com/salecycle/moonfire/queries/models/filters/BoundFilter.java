@@ -10,8 +10,9 @@ public class BoundFilter extends Filter {
     private boolean upperStrict;
     private Ordering ordering;
 
-    public BoundFilter() {
-        setType("bound");
+    public BoundFilter(String dimension) {
+        super("bound");
+        this.dimension = dimension;
     }
 
     public String getDimension() {

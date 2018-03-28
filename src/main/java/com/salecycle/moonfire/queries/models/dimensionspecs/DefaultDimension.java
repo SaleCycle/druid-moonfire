@@ -8,7 +8,7 @@ public class DefaultDimension extends DimensionSpec {
     private OutputType outputType;
 
     public DefaultDimension() {
-        setType("default");
+        super("default");
     }
 
     public String getDimension() {

@@ -7,7 +7,7 @@ public class AndFilter extends Filter {
     private List<Filter> fields = new ArrayList<Filter>();
 
     public AndFilter() {
-        setType("and");
+        super("and");
     }
 
     public List<Filter> getFields() {

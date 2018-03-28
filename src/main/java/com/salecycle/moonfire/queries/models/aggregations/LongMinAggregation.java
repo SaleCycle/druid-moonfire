@@ -4,7 +4,7 @@ public class LongMinAggregation extends Aggregation {
     private String fieldName;
 
     public LongMinAggregation() {
-        setType("longMin");
+        super("longMin");
     }
 
     public String getFieldName() {

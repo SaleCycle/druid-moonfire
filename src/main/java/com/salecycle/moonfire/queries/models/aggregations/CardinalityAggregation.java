@@ -12,7 +12,7 @@ public class CardinalityAggregation extends Aggregation {
     private boolean round;
 
     public CardinalityAggregation() {
-        setType("cardinality");
+        super("cardinality");
     }
 
     public String getFieldName() {

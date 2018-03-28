@@ -7,7 +7,7 @@ public class MapLookup extends Lookup {
     private Boolean isOneToOne;
 
     public MapLookup() {
-        setType("map");
+        super("map");
     }
 
     public HashMap<String, String> getMap() {

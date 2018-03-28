@@ -8,7 +8,7 @@ public class TimeFormatExtractionFunction extends ExtractionFunction {
     private Boolean asMillis;
 
     public TimeFormatExtractionFunction() {
-        setType("timeFormat");
+        super("timeFormat");
     }
 
     public String getFormat() {

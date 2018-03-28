@@ -4,17 +4,22 @@ import com.salecycle.moonfire.queries.models.AnalysisType;
 import com.salecycle.moonfire.queries.models.contexts.Context;
 import com.salecycle.moonfire.queries.models.toincludes.ToInclude;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SegmentMetadataQuery {
     private final String queryType = "segmentMetadata";
     private String dataSource;
-    private List<String> intervals;
+    private List<String> intervals = new ArrayList<String>();
     private ToInclude toInclude;
     private boolean merge;
-    private List<AnalysisType> analysisTypes;
+    private List<AnalysisType> analysisTypes = new ArrayList<AnalysisType>();
     private boolean lenietAggregatorMerge;
     private Context context;
+
+    public SegmentMetadataQuery(String dataSource) {
+        this.dataSource = dataSource;
+    }
 
     public String getQueryType() {
         return queryType;

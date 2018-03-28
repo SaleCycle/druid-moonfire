@@ -3,11 +3,11 @@ package com.salecycle.moonfire.queries.models.searchqueryspecs;
 public abstract class SearchQuerySpec {
     private String type;
 
-    public String getType() {
-        return type;
+    protected SearchQuerySpec(String type) {
+        this.type = type;
     }
 
-    protected void setType(String type) {
-        this.type = type;
+    public String getType() {
+        return type;
     }
 }

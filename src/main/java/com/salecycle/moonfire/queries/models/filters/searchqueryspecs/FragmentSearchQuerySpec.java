@@ -3,8 +3,8 @@ package com.salecycle.moonfire.queries.models.filters.searchqueryspecs;
 public class FragmentSearchQuerySpec extends SearchQuerySpec {
     private boolean caseSentitive;
 
-    public FragmentSearchQuerySpec() {
-        setType("fragment");
+    public FragmentSearchQuerySpec(String value) {
+        super("fragment", value);
     }
 
     public boolean isCaseSentitive() {

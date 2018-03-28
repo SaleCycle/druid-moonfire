@@ -4,7 +4,7 @@ public class NotHavingSpec extends HavingSpec {
     private HavingSpec havingSpec;
 
     public NotHavingSpec() {
-        setType("not");
+        super("not");
     }
 
     public NotHavingSpec setHavingSpec(HavingSpec havingSpec) {

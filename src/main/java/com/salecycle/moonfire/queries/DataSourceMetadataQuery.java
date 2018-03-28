@@ -7,6 +7,10 @@ public class DataSourceMetadataQuery {
     private String dataSource;
     private Context context;
 
+    public DataSourceMetadataQuery(String dataSource) {
+        this.dataSource = dataSource;
+    }
+
     public String getQueryType() {
         return queryType;
     }

@@ -6,7 +6,7 @@ public class DoubleGreatestPostAggregation extends PostAggregation {
     private List<PostAggregation> fields;
 
     public DoubleGreatestPostAggregation() {
-        setType("doubleGreatest");
+        super("doubleGreatest");
     }
 
     public List<PostAggregation> getFields() {

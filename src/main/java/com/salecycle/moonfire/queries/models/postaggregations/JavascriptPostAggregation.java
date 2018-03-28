@@ -7,7 +7,7 @@ public class JavascriptPostAggregation extends PostAggregation {
     private String function;
 
     public JavascriptPostAggregation() {
-        setType("javascript");
+        super("javascript");
     }
 
     public List<String> getFieldNames() {

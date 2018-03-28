@@ -5,7 +5,7 @@ public class StringFormatExtractionFunction extends ExtractionFunction {
     private NullHandling nullHandling;
 
     public StringFormatExtractionFunction() {
-        setType("stringFormat");
+        super("stringFormat");
     }
 
     public String getFormat() {

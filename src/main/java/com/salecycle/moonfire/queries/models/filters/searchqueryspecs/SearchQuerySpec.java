@@ -4,12 +4,13 @@ public abstract class SearchQuerySpec {
     private String type;
     private String value;
 
-    public String getType() {
-        return type;
+    protected SearchQuerySpec(String type, String value) {
+        this.type = type;
+        this.value = value;
     }
 
-    protected void setType(String type) {
-        this.type = type;
+    public String getType() {
+        return type;
     }
 
     public String getValue() {

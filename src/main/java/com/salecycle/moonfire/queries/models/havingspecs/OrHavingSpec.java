@@ -6,7 +6,7 @@ public class OrHavingSpec extends HavingSpec {
     private List<HavingSpec> havingSpecs;
 
     public OrHavingSpec() {
-        setType("or");
+        super("or");
     }
 
     public List<HavingSpec> getHavingSpecs() {

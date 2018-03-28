@@ -4,7 +4,7 @@ public class DoubleMinAggregation extends Aggregation {
     private String fieldName;
 
     public DoubleMinAggregation() {
-        setType("doubleMin");
+        super("doubleMin");
     }
 
     public String getFieldName() {

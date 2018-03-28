@@ -5,7 +5,7 @@ public class BucketExtractionFunction extends ExtractionFunction {
     private Long offset;
 
     public BucketExtractionFunction() {
-        setType("bucket");
+        super("bucket");
     }
 
     public Long getSize() {

@@ -4,20 +4,20 @@ public abstract class PostAggregation {
     private String type;
     private String name;
 
-    public String getType() {
-        return type;
+    protected PostAggregation(String type) {
+        this.type = type;
     }
 
-    protected void setType(String type) {
-        this.type = type;
+    public String getType() {
+        return type;
     }
 
     public String getName() {
         return name;
     }
 
-    public PostAggregation setName(String name) {
+    public <T extends PostAggregation> T setName(String name) {
         this.name = name;
-        return this;
+        return (T)this;
     }
 }

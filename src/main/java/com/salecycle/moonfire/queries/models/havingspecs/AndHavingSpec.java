@@ -6,7 +6,7 @@ public class AndHavingSpec extends HavingSpec {
     private List<HavingSpec> havingSpecs;
 
     public AndHavingSpec() {
-        setType("and");
+        super("and");
     }
 
     public List<HavingSpec> getHavingSpecs() {

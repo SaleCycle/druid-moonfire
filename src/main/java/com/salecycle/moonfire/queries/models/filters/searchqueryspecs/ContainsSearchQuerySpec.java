@@ -3,8 +3,8 @@ package com.salecycle.moonfire.queries.models.filters.searchqueryspecs;
 public class ContainsSearchQuerySpec extends SearchQuerySpec {
     private boolean caseSentitive;
 
-    public ContainsSearchQuerySpec() {
-        setType("contains");
+    public ContainsSearchQuerySpec(String value) {
+        super("contains", value);
     }
 
     public boolean isCaseSentitive() {

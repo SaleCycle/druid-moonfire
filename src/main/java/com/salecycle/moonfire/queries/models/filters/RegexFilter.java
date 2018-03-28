@@ -5,7 +5,7 @@ public class RegexFilter extends Filter {
     private String pattern;
 
     public RegexFilter() {
-        setType("regex");
+        super("regex");
     }
 
     public String getDimension() {

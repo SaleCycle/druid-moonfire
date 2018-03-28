@@ -8,7 +8,7 @@ public class ListFilteredDimensionSpec extends DimensionSpec {
     private boolean isWhitelist = true;
 
     public ListFilteredDimensionSpec() {
-        setType("listFiltered");
+        super("listFiltered");
     }
 
     public DimensionSpec getDelegate() {

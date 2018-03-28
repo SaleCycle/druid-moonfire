@@ -4,7 +4,7 @@ public class LongSumAggregation extends Aggregation {
     private String fieldName;
 
     public LongSumAggregation() {
-        setType("longSum");
+        super("longSum");
     }
 
     public String getFieldName() {

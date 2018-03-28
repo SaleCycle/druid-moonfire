@@ -5,7 +5,7 @@ public class JavascriptFilter extends Filter {
     private String function;
 
     public JavascriptFilter() {
-        setType("javascript");
+        super("javascript");
     }
 
     public String getDimension() {

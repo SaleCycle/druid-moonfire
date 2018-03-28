@@ -10,7 +10,7 @@ public class ExtractionDimension extends DimensionSpec {
     private ExtractionFunction extractionFn;
 
     public ExtractionDimension() {
-        setType("extraction");
+        super("extraction");
     }
 
     public String getDimension() {

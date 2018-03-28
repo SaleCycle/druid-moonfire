@@ -8,7 +8,7 @@ public class ArithmeticPostAggregation extends PostAggregation {
     private Ordering ordering;
 
     public ArithmeticPostAggregation() {
-        setType("arithmetic");
+        super("arithmetic");
     }
 
     public String getFn() {

@@ -5,8 +5,10 @@ public class LikeFilter extends Filter {
     private String pattern;
     private String escape;
 
-    public LikeFilter() {
-        setType("like");
+    public LikeFilter(String dimension, String pattern) {
+        super("like");
+        this.dimension = dimension;
+        this.pattern = pattern;
     }
 
     public String getDimension() {

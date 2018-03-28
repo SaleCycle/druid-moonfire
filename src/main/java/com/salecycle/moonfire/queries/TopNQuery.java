@@ -23,6 +23,15 @@ public class TopNQuery {
     private TopNMetricSpec metric;
     private Context context;
 
+    public TopNQuery(String dataSource, List<String> intervals, Granularity granularity, DimensionSpec dimension, int threshold, TopNMetricSpec metric) {
+        this.dataSource = dataSource;
+        this.intervals = intervals;
+        this.granularity = granularity;
+        this.dimension = dimension;
+        this.threshold = threshold;
+        this.metric = metric;
+    }
+
     public String getQueryType() {
         return queryType;
     }

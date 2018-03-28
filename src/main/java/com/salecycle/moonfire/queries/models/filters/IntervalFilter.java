@@ -6,8 +6,10 @@ public class IntervalFilter extends Filter {
     private String dimension;
     private List<String> intervals;
 
-    public IntervalFilter() {
-        setType("interval");
+    public IntervalFilter(List<String> intervals, String dimension) {
+        super("interval");
+        this.intervals = intervals;
+        this.dimension = dimension;
     }
 
     public String getDimension() {

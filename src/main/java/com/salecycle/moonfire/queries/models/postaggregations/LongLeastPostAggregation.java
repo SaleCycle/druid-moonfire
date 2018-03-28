@@ -6,7 +6,7 @@ public class LongLeastPostAggregation extends PostAggregation {
     private List<PostAggregation> fields;
 
     public LongLeastPostAggregation() {
-        setType("longLeast");
+        super("longLeast");
     }
 
     public List<PostAggregation> getFields() {

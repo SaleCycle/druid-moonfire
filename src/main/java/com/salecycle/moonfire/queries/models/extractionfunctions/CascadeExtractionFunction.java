@@ -6,7 +6,7 @@ public class CascadeExtractionFunction extends ExtractionFunction {
     private List<ExtractionFunction> extractionFns;
 
     public CascadeExtractionFunction() {
-        setType("cascade");
+        super("cascade");
     }
 
     public List<ExtractionFunction> getExtractionFns() {

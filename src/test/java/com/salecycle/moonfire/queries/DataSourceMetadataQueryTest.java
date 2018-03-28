@@ -19,8 +19,7 @@ public class DataSourceMetadataQueryTest {
         context.put("timeout", 100);
         context.put("useCache", true);
         context.put("chunkPeriod", "P0D");
-        DataSourceMetadataQuery query = new DataSourceMetadataQuery()
-                .setDataSource("sample_datasource")
+        DataSourceMetadataQuery query = new DataSourceMetadataQuery("sample_datasource")
                 .setContext(context);
 
         String json = writer.withDefaultPrettyPrinter().writeValueAsString(query);

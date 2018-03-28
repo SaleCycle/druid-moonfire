@@ -4,12 +4,12 @@ public abstract class Aggregation {
     private String type;
     private String name;
 
-    public String getType() {
-        return type;
+    protected Aggregation(String type) {
+        this.type = type;
     }
 
-    protected void setType(String type) {
-        this.type = type;
+    public String getType() {
+        return type;
     }
 
     public String getName() {

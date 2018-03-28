@@ -4,7 +4,7 @@ public class DurationGranularity extends ComplexGranularity {
     private long duration;
 
     public DurationGranularity() {
-        setType("duration");
+        super("duration");
     }
 
     public long getDuration() {

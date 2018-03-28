@@ -19,6 +19,12 @@ public class TimeSeriesQuery {
     private List<PostAggregation> postAggregations;
     private Context context;
 
+    public TimeSeriesQuery(String dataSource, List<String> intervals, Granularity granularity) {
+        this.dataSource = dataSource;
+        this.intervals = intervals;
+        this.granularity = granularity;
+    }
+
     public String getQueryType() {
         return queryType;
     }

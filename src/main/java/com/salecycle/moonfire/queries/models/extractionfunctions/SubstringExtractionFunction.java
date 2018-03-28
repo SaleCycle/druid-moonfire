@@ -5,7 +5,7 @@ public class SubstringExtractionFunction extends ExtractionFunction {
     private Long length;
 
     public SubstringExtractionFunction() {
-        setType("substring");
+        super("substring");
     }
 
     public long getIndex() {

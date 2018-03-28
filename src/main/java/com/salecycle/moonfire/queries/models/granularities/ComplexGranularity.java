@@ -4,12 +4,12 @@ public abstract class ComplexGranularity {
     private String type;
     private String origin;
 
-    public String getType() {
-        return type;
+    protected ComplexGranularity(String type) {
+        this.type = type;
     }
 
-    protected void setType(String type) {
-        this.type = type;
+    public String getType() {
+        return type;
     }
 
     public String getOrigin() {

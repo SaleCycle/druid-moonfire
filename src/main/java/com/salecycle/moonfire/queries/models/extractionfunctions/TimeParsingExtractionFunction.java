@@ -5,7 +5,7 @@ public class TimeParsingExtractionFunction extends ExtractionFunction {
     private String resultFormat;
 
     public TimeParsingExtractionFunction() {
-        setType("time");
+        super("time");
     }
 
     public String getTimeFormat() {

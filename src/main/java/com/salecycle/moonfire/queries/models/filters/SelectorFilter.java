@@ -5,7 +5,7 @@ public class SelectorFilter extends Filter {
     private String value;
 
     public SelectorFilter() {
-        setType("selector");
+        super("selector");
     }
 
     public String getDimension() {

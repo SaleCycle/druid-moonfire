@@ -8,7 +8,7 @@ public class InFilter extends Filter {
     private List<String> values = new ArrayList<String>();
 
     public InFilter() {
-        setType("in");
+        super("in");
     }
 
     public String getDimension() {

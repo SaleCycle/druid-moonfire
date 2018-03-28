@@ -15,7 +15,7 @@ import java.util.List;
 public class GroupByQuery {
     private final String queryType = "groupBy";
     private String dataSource;
-    private List<DimensionSpec> dimensions = new ArrayList<DimensionSpec>();
+    private List<DimensionSpec> dimensions;
     private LimitSpec limitSpec;
     private HavingSpec having;
     private Granularity granularity;
@@ -24,6 +24,13 @@ public class GroupByQuery {
     private List<PostAggregation> postAggregations;
     private List<String> intervals;
     private Context context;
+
+    public GroupByQuery(String dataSource, List<String> intervals, Granularity granularity, List<DimensionSpec> dimensions) {
+        this.dataSource = dataSource;
+        this.intervals = intervals;
+        this.dimensions = dimensions;
+        this.granularity = granularity;
+    }
 
     public String getQueryType() {
         return queryType;

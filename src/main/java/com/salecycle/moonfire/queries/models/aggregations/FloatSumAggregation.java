@@ -4,7 +4,7 @@ public class FloatSumAggregation extends Aggregation {
     private String fieldName;
 
     public FloatSumAggregation() {
-        setType("floatSum");
+        super("floatSum");
     }
 
     public String getFieldName() {

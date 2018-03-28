@@ -6,7 +6,7 @@ public class LongGreatestPostAggregation extends PostAggregation {
     private List<PostAggregation> fields;
 
     public LongGreatestPostAggregation() {
-        setType("longGreatest");
+        super("longGreatest");
     }
 
     public List<PostAggregation> getFields() {

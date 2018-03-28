@@ -23,10 +23,8 @@ public class TimeBoundaryQueryTest {
         context.put("useCache", true);
         context.put("chunkPeriod", "P0D");
 
-        LikeFilter likeFilter = new LikeFilter()
-                .setDimension("myLikeDimension")
-                .setEscape("\\")
-                .setPattern("pattern");
+        LikeFilter likeFilter = new LikeFilter("myLikeDimension", "pattern")
+                .setEscape("\\");
 
         RegexFilter regexFilter = new RegexFilter()
                 .setDimension("myRegexDimension")
@@ -40,8 +38,7 @@ public class TimeBoundaryQueryTest {
         NotFilter notFilter = new NotFilter()
                 .setField(selectorFilter);
 
-        TimeBoundaryQuery query = new TimeBoundaryQuery()
-                .setDataSource("sample_datasource")
+        TimeBoundaryQuery query = new TimeBoundaryQuery("sample_datasource")
                 .setBound(Bound.maxTime)
                 .setFilter(new AndFilter().addField(likeFilter).addField(notFilter).addField(regexFilter))
                 .setContext(context);

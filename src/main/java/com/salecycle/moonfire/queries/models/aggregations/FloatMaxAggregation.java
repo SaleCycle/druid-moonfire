@@ -4,7 +4,7 @@ public class FloatMaxAggregation extends Aggregation {
     private String fieldName;
 
     public FloatMaxAggregation() {
-        setType("floatMax");
+        super("floatMax");
     }
 
     public String getFieldName() {

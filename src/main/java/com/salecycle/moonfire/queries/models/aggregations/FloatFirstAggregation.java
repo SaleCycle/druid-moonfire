@@ -4,7 +4,7 @@ public class FloatFirstAggregation extends Aggregation {
     private String fieldName;
 
     public FloatFirstAggregation() {
-        setType("floatFirst");
+        super("floatFirst");
     }
 
     public String getFieldName() {

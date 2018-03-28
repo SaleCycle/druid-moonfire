@@ -4,7 +4,7 @@ public class RegexSearchQuerySpec extends SearchQuerySpec {
     private String pattern;
 
     public RegexSearchQuerySpec() {
-        setType("regex");
+        super("regex");
     }
 
     public String getPattern() {

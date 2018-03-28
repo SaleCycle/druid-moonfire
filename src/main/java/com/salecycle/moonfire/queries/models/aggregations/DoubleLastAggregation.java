@@ -4,7 +4,7 @@ public class DoubleLastAggregation extends Aggregation {
     private String fieldName;
 
     public DoubleLastAggregation() {
-        setType("doubleLast");
+        super("doubleLast");
     }
 
     public String getFieldName() {

@@ -7,7 +7,7 @@ public class OrFilter extends Filter {
     private List<Filter> fields = new ArrayList<Filter>();
 
     public OrFilter() {
-        setType("or");
+        super("or");
     }
 
     public List<Filter> getFields() {

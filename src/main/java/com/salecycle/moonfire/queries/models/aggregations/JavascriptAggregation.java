@@ -9,7 +9,7 @@ public class JavascriptAggregation extends Aggregation {
     private String fnReset;
 
     public JavascriptAggregation() {
-        setType("javascript");
+        super("javascript");
     }
 
     public List<String> getFieldNames() {

@@ -4,7 +4,7 @@ public class LongLastAggregation extends Aggregation {
     private String fieldName;
 
     public LongLastAggregation() {
-        setType("longLast");
+        super("longLast");
     }
 
     public String getFieldName() {

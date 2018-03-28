@@ -7,7 +7,7 @@ public class RegexExtractionFunction extends ExtractionFunction {
     private String replaceMissingValueWith;
 
     public RegexExtractionFunction() {
-        setType("regex");
+        super("regex");
     }
 
     public String getExpr() {

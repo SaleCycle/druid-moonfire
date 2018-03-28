@@ -3,8 +3,9 @@ package com.salecycle.moonfire.queries.models.topnmetricspecs;
 public class NumericTopNMetricSpec extends TopNMetricSpec {
     private String metric;
 
-    public NumericTopNMetricSpec() {
-        setType("numeric");
+    public NumericTopNMetricSpec(String metric) {
+        super("numeric");
+        this.metric = metric;
     }
 
     public String getMetric() {

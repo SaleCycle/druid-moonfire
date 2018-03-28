@@ -4,7 +4,7 @@ public class LongMaxAggregation extends Aggregation {
     private String fieldName;
 
     public LongMaxAggregation() {
-        setType("longMax");
+        super("longMax");
     }
 
     public String getFieldName() {

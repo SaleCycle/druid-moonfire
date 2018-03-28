@@ -6,7 +6,7 @@ public class QueryFilterHavingSpec extends HavingSpec {
     private Filter filter;
 
     public QueryFilterHavingSpec() {
-        setType("filter");
+        super("filter");
     }
 
     public Filter getFilter() {

@@ -6,12 +6,12 @@ public abstract class Filter {
     private String type;
     private ExtractionFunction extractionFn;
 
-    public String getType() {
-        return type;
+    protected Filter(String type) {
+        this.type = type;
     }
 
-    protected void setType(String type) {
-        this.type = type;
+    public String getType() {
+        return type;
     }
 
     public ExtractionFunction getExtractionFn() {

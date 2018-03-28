@@ -7,7 +7,7 @@ public class FilteredAggregation extends Aggregation {
     private Aggregation aggregator;
 
     public FilteredAggregation() {
-        setType("filtered");
+        super("filtered");
     }
 
     public Filter getFilter() {

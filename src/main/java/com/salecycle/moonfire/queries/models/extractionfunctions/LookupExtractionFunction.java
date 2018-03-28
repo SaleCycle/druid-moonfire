@@ -10,7 +10,7 @@ public class LookupExtractionFunction extends ExtractionFunction {
     private String replaceMissingValueWith;
 
     public LookupExtractionFunction() {
-        setType("lookup");
+        super("lookup");
     }
 
     public Lookup getLookup() {

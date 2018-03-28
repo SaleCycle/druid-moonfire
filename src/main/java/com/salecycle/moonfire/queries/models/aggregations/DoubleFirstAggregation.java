@@ -4,7 +4,7 @@ public class DoubleFirstAggregation extends Aggregation {
     private String fieldName;
 
     public DoubleFirstAggregation() {
-        setType("doubleFirst");
+        super("doubleFirst");
     }
 
     public String getFieldName() {

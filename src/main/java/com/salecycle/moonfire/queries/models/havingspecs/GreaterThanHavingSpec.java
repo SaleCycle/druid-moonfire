@@ -9,7 +9,7 @@ public class GreaterThanHavingSpec extends HavingSpec {
     private Number value;
 
     public GreaterThanHavingSpec() {
-        setType("greaterThan");
+        super("greaterThan");
     }
 
     public Aggregation getAggregation() {

@@ -12,7 +12,7 @@ public class ThetaSketchSetOperationsPostAggregation extends PostAggregation {
     private long size = 16384;
 
     public ThetaSketchSetOperationsPostAggregation() {
-        setType("thetaSketchEstimate");
+        super("thetaSketchEstimate");
     }
 
     public ThetaSketchFunction getFunc() {

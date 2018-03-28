@@ -4,7 +4,7 @@ public class UpperExtractionFunction extends ExtractionFunction {
     private String locale;
 
     public UpperExtractionFunction() {
-        setType("upper");
+        super("upper");
     }
 
     public String getLocale() {

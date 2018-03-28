@@ -5,7 +5,7 @@ public class DimensionTopNMetricSpec extends TopNMetricSpec {
     private String previousStop;
 
     public DimensionTopNMetricSpec() {
-        setType("dimension");
+        super("dimension");
     }
 
     public Ordering getOrdering() {

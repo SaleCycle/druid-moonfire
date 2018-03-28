@@ -7,7 +7,7 @@ public class LessThanHavingSpec extends HavingSpec {
     private Number value;
 
     public LessThanHavingSpec() {
-        setType("lessThan");
+        super("lessThan");
     }
 
     public Aggregation getAggregation() {

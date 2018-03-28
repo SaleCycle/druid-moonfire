@@ -6,7 +6,7 @@ public class HyperUniqueAggregation extends Aggregation {
     private boolean round;
 
     public HyperUniqueAggregation() {
-        setType("longSum");
+        super("longSum");
     }
 
     public String getFieldName() {

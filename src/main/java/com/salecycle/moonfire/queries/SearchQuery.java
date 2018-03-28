@@ -1,6 +1,7 @@
 package com.salecycle.moonfire.queries;
 
 import com.salecycle.moonfire.queries.models.contexts.Context;
+import com.salecycle.moonfire.queries.models.dimensionspecs.DimensionSpec;
 import com.salecycle.moonfire.queries.models.filters.Filter;
 import com.salecycle.moonfire.queries.models.granularities.Granularity;
 import com.salecycle.moonfire.queries.models.Ordering;
@@ -20,6 +21,13 @@ public class SearchQuery {
     private SearchQuerySpec query;
     private Ordering sort;
     private Context context;
+
+    public SearchQuery(String dataSource, List<String> intervals, Granularity granularity, SearchQuerySpec query) {
+        this.dataSource = dataSource;
+        this.intervals = intervals;
+        this.granularity = granularity;
+        this.query = query;
+    }
 
     public String getQueryType() {
         return queryType;

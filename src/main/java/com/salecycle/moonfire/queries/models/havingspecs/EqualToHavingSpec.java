@@ -7,7 +7,7 @@ public class EqualToHavingSpec extends HavingSpec {
     private Number value;
 
     public EqualToHavingSpec() {
-        setType("equalTo");
+        super("equalTo");
     }
 
     public Aggregation getAggregation() {

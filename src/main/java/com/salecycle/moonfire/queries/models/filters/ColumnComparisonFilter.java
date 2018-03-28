@@ -8,7 +8,7 @@ public class ColumnComparisonFilter extends Filter {
     private List<DimensionSpec> dimensions;
 
     public ColumnComparisonFilter() {
-        setType("columnComparison");
+        super("columnComparison");
     }
 
     public List<DimensionSpec> getDimensions() {

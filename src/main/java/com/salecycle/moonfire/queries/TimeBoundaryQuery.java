@@ -11,6 +11,10 @@ public class TimeBoundaryQuery {
     private Filter filter;
     private Context context;
 
+    public TimeBoundaryQuery(String dataSource) {
+        this.dataSource = dataSource;
+    }
+
     public String getQueryType() {
         return queryType;
     }

@@ -4,7 +4,7 @@ public class HyperUniqueCardinalityPostAggregation extends PostAggregation {
     private String fieldName;
 
     public HyperUniqueCardinalityPostAggregation() {
-        setType("hyperUniqueCardinality");
+        super("hyperUniqueCardinality");
     }
 
     public String getFieldName() {

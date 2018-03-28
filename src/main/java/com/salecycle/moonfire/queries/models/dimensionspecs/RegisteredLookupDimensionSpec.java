@@ -6,7 +6,7 @@ public class RegisteredLookupDimensionSpec extends DimensionSpec {
     private String name;
 
     public RegisteredLookupDimensionSpec() {
-        setType("lookup");
+        super("lookup");
     }
 
     public String getDimensionName() {

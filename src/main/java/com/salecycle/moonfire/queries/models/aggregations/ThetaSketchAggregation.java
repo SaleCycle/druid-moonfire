@@ -10,7 +10,7 @@ public class ThetaSketchAggregation extends Aggregation {
     private long size = 16384;
 
     public ThetaSketchAggregation() {
-        setType("thetaSketch");
+        super("thetaSketch");
     }
 
     public String getFieldName() {

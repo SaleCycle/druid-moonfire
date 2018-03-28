@@ -5,7 +5,7 @@ public class RegexFilteredDimensionSpec extends DimensionSpec {
     private String pattern;
 
     public RegexFilteredDimensionSpec() {
-        setType("regexFiltered");
+        super("regexFiltered");
     }
 
     public DimensionSpec getDelegate() {

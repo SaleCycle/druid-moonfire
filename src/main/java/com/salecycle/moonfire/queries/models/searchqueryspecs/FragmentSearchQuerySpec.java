@@ -8,7 +8,7 @@ public class FragmentSearchQuerySpec extends SearchQuerySpec {
     private List<String> values = new ArrayList<String>();
 
     public FragmentSearchQuerySpec() {
-        setType("fragment");
+        super("fragment");
     }
 
     public boolean isCase_sensitive() {

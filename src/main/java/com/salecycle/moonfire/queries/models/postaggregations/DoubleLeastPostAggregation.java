@@ -6,7 +6,7 @@ public class DoubleLeastPostAggregation extends PostAggregation {
     private List<PostAggregation> fields;
 
     public DoubleLeastPostAggregation() {
-        setType("doubleLeast");
+        super("doubleLeast");
     }
 
     public List<PostAggregation> getFields() {

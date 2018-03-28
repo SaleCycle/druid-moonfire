@@ -4,7 +4,7 @@ public class FinalizingFieldAccessPostAggregation extends PostAggregation {
     private String fieldName;
 
     public FinalizingFieldAccessPostAggregation() {
-        setType("finalizingFieldAccess");
+        super("finalizingFieldAccess");
     }
 
     public String getFieldName() {

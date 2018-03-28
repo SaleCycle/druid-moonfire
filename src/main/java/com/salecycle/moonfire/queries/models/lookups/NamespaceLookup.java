@@ -4,7 +4,7 @@ public class NamespaceLookup extends Lookup {
     private String namespace;
 
     public NamespaceLookup() {
-        setType("namespace");
+        super("namespace");
     }
 
     public String getNamespace() {

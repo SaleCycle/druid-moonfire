@@ -7,7 +7,7 @@ public class DefaultLimitSpec extends LimitSpec {
     private List<OrderByColumnSpec> columns;
 
     public DefaultLimitSpec() {
-        setType("default");
+        super("default");
     }
 
     public int getLimit() {

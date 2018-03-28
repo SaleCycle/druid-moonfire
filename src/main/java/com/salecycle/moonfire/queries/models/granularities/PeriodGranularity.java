@@ -5,7 +5,7 @@ public class PeriodGranularity extends ComplexGranularity {
     private String timeZone;
 
     public PeriodGranularity() {
-        setType("period");
+        super("period");
     }
 
     public String getPeriod() {

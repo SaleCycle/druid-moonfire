@@ -12,7 +12,7 @@ public class LookupDimensionSpec extends DimensionSpec {
     private boolean optimize = true;
 
     public LookupDimensionSpec() {
-        setType("lookup");
+        super("lookup");
     }
 
     public String getDimension() {

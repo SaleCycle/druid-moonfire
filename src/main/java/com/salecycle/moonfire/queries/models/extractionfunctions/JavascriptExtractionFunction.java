@@ -5,7 +5,7 @@ public class JavascriptExtractionFunction extends ExtractionFunction {
     private boolean injective;
 
     public JavascriptExtractionFunction() {
-        setType("javascript");
+        super("javascript");
     }
 
     public String getFunction() {

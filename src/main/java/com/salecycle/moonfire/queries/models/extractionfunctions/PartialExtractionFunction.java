@@ -4,7 +4,7 @@ public class PartialExtractionFunction extends ExtractionFunction {
     private String expr;
 
     public PartialExtractionFunction() {
-        setType("partial");
+        super("partial");
     }
 
     public String getExpr() {

@@ -4,7 +4,7 @@ public class ConstantPostAggregation extends PostAggregation {
     private Number value;
 
     public ConstantPostAggregation() {
-        setType("constant");
+        super("constant");
     }
 
     public Number getValue() {

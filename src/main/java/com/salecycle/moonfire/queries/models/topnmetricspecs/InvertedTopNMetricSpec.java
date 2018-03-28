@@ -3,8 +3,9 @@ package com.salecycle.moonfire.queries.models.topnmetricspecs;
 public class InvertedTopNMetricSpec extends TopNMetricSpec {
     private String metric;
 
-    public InvertedTopNMetricSpec() {
-        setType("inverted");
+    public InvertedTopNMetricSpec(String metric) {
+        super("inverted");
+        this.metric = metric;
     }
 
     public String getMetric() {

@@ -6,7 +6,7 @@ public class ListToInclude extends ToInclude {
     private List<String> columns;
 
     public ListToInclude() {
-        setType("list");
+        super("list");
     }
 
     public List<String> getColumns() {

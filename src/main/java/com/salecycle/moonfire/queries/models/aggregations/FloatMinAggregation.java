@@ -4,7 +4,7 @@ public class FloatMinAggregation extends Aggregation {
     private String fieldName;
 
     public FloatMinAggregation() {
-        setType("floatMin");
+        super("floatMin");
     }
 
     public String getFieldName() {

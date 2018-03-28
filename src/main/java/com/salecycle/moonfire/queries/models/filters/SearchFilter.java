@@ -6,8 +6,10 @@ public class SearchFilter extends Filter {
     private String dimension;
     private SearchQuerySpec query;
 
-    public SearchFilter() {
-        setType("search");
+    public SearchFilter(String dimension, SearchQuerySpec query) {
+        super("search");
+        this.dimension = dimension;
+        this.query = query;
     }
 
     public String getDimension() {

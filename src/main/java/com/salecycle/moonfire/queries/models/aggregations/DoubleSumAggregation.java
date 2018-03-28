@@ -4,7 +4,7 @@ public class DoubleSumAggregation extends Aggregation {
     private String fieldName;
 
     public DoubleSumAggregation() {
-        setType("doubleSum");
+        super("doubleSum");
     }
 
     public String getFieldName() {

@@ -4,7 +4,7 @@ public class FloatLastAggregation extends Aggregation {
     private String fieldName;
 
     public FloatLastAggregation() {
-        setType("floatLast");
+        super("floatLast");
     }
 
     public String getFieldName() {

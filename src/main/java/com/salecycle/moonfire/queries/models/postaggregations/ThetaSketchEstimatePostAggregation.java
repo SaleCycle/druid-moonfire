@@ -8,7 +8,7 @@ public class ThetaSketchEstimatePostAggregation extends PostAggregation {
     private FieldAccessPostAggregation field;
 
     public ThetaSketchEstimatePostAggregation() {
-        setType("thetaSketchEstimate");
+        super("thetaSketchEstimate");
     }
 
     public FieldAccessPostAggregation getField() {

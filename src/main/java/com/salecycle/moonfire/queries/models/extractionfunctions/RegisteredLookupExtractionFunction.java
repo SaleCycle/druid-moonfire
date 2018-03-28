@@ -6,7 +6,7 @@ public class RegisteredLookupExtractionFunction extends ExtractionFunction {
     private boolean injective;
 
     public RegisteredLookupExtractionFunction() {
-        setType("registeredLookup");
+        super("registeredLookup");
     }
 
     public String getLookup() {

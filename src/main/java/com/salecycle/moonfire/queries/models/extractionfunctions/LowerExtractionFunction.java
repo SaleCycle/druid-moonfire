@@ -4,7 +4,7 @@ public class LowerExtractionFunction extends ExtractionFunction {
     private String locale;
 
     public LowerExtractionFunction() {
-        setType("lower");
+        super("lower");
     }
 
     public String getLocale() {

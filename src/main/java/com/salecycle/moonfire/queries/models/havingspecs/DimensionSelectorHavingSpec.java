@@ -7,7 +7,7 @@ public class DimensionSelectorHavingSpec extends HavingSpec {
     private Object value;
 
     public DimensionSelectorHavingSpec() {
-        setType("dimSelector");
+        super("dimSelector");
     }
 
     public DimensionSpec getDimension() {

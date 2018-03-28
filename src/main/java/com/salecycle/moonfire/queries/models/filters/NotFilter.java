@@ -4,7 +4,7 @@ public class NotFilter extends Filter {
     private Filter field;
 
     public NotFilter() {
-        setType("not");
+        super("not");
     }
 
     public Filter getField() {

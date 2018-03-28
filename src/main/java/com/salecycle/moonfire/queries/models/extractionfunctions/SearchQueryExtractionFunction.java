@@ -4,7 +4,7 @@ public class SearchQueryExtractionFunction extends ExtractionFunction {
     private String query;
 
     public SearchQueryExtractionFunction() {
-        setType("searchQuery");
+        super("searchQuery");
     }
 
     public String getQuery() {

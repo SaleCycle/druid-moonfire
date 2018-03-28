@@ -5,7 +5,7 @@ public class ContainsSearchQuerySpec extends SearchQuerySpec {
     private boolean case_sensitive = true;
 
     public ContainsSearchQuerySpec() {
-        setType("contains");
+        super("contains");
     }
 
     public String getValue() {

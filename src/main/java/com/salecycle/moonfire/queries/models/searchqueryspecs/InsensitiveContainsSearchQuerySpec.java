@@ -4,7 +4,7 @@ public class InsensitiveContainsSearchQuerySpec extends SearchQuerySpec {
     private String value;
 
     public InsensitiveContainsSearchQuerySpec() {
-        setType("insensitive_contains");
+        super("insensitive_contains");
     }
 
     public String getValue() {
