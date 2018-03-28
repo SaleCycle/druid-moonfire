@@ -11,7 +11,8 @@ public class LongMaxAggregation extends Aggregation {
         return fieldName;
     }
 
-    public void setFieldName(String fieldName) {
+    public LongMaxAggregation setFieldName(String fieldName) {
         this.fieldName = fieldName;
+        return this;
     }
 }

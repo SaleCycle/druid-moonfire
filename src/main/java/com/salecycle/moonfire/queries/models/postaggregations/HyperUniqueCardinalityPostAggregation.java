@@ -11,7 +11,8 @@ public class HyperUniqueCardinalityPostAggregation extends PostAggregation {
         return fieldName;
     }
 
-    public void setFieldName(String fieldName) {
+    public HyperUniqueCardinalityPostAggregation setFieldName(String fieldName) {
         this.fieldName = fieldName;
+        return this;
     }
 }

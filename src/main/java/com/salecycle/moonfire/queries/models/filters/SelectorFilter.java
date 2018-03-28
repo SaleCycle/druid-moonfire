@@ -12,15 +12,17 @@ public class SelectorFilter extends Filter {
         return dimension;
     }
 
-    public void setDimension(String dimension) {
+    public SelectorFilter setDimension(String dimension) {
         this.dimension = dimension;
+        return this;
     }
 
     public String getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public SelectorFilter setValue(String value) {
         this.value = value;
+        return this;
     }
 }

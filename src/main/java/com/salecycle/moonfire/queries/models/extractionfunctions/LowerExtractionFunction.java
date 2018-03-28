@@ -11,7 +11,8 @@ public class LowerExtractionFunction extends ExtractionFunction {
         return locale;
     }
 
-    public void setLocale(String locale) {
+    public LowerExtractionFunction setLocale(String locale) {
         this.locale = locale;
+        return this;
     }
 }

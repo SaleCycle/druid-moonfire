@@ -17,39 +17,44 @@ public class LookupExtractionFunction extends ExtractionFunction {
         return lookup;
     }
 
-    public void setLookup(Lookup lookup) {
+    public LookupExtractionFunction setLookup(Lookup lookup) {
         this.lookup = lookup;
+        return this;
     }
 
     public boolean isRetainMissingValue() {
         return retainMissingValue;
     }
 
-    public void setRetainMissingValue(boolean retainMissingValue) {
+    public LookupExtractionFunction setRetainMissingValue(boolean retainMissingValue) {
         this.retainMissingValue = retainMissingValue;
+        return this;
     }
 
     public boolean isInjective() {
         return injective;
     }
 
-    public void setInjective(boolean injective) {
+    public LookupExtractionFunction setInjective(boolean injective) {
         this.injective = injective;
-    }
-
-    public String getReplaceMissingValueWith() {
-        return replaceMissingValueWith;
-    }
-
-    public void setReplaceMissingValueWith(String replaceMissingValueWith) {
-        this.replaceMissingValueWith = replaceMissingValueWith;
+        return this;
     }
 
     public boolean isOptimize() {
         return optimize;
     }
 
-    public void setOptimize(boolean optimize) {
+    public LookupExtractionFunction setOptimize(boolean optimize) {
         this.optimize = optimize;
+        return this;
+    }
+
+    public String getReplaceMissingValueWith() {
+        return replaceMissingValueWith;
+    }
+
+    public LookupExtractionFunction setReplaceMissingValueWith(String replaceMissingValueWith) {
+        this.replaceMissingValueWith = replaceMissingValueWith;
+        return this;
     }
 }

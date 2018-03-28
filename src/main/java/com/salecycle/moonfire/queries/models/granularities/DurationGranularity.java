@@ -11,7 +11,8 @@ public class DurationGranularity extends ComplexGranularity {
         return duration;
     }
 
-    public void setDuration(long duration) {
+    public DurationGranularity setDuration(long duration) {
         this.duration = duration;
+        return this;
     }
 }

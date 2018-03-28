@@ -11,7 +11,8 @@ public class FloatSumAggregation extends Aggregation {
         return fieldName;
     }
 
-    public void setFieldName(String fieldName) {
+    public FloatSumAggregation setFieldName(String fieldName) {
         this.fieldName = fieldName;
+        return this;
     }
 }

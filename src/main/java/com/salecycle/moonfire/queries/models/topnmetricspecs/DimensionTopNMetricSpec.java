@@ -12,15 +12,17 @@ public class DimensionTopNMetricSpec extends TopNMetricSpec {
         return ordering;
     }
 
-    public void setOrdering(Ordering ordering) {
+    public DimensionTopNMetricSpec setOrdering(Ordering ordering) {
         this.ordering = ordering;
+        return this;
     }
 
     public String getPreviousStop() {
         return previousStop;
     }
 
-    public void setPreviousStop(String previousStop) {
+    public DimensionTopNMetricSpec setPreviousStop(String previousStop) {
         this.previousStop = previousStop;
+        return this;
     }
 }

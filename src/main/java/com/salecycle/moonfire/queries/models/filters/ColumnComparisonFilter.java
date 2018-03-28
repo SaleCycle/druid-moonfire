@@ -15,7 +15,8 @@ public class ColumnComparisonFilter extends Filter {
         return dimensions;
     }
 
-    public void setDimensions(List<DimensionSpec> dimensions) {
+    public ColumnComparisonFilter setDimensions(List<DimensionSpec> dimensions) {
         this.dimensions = dimensions;
+        return this;
     }
 }

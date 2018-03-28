@@ -14,15 +14,17 @@ public class EqualToHavingSpec extends HavingSpec {
         return aggregation;
     }
 
-    public void setAggregation(Aggregation aggregation) {
+    public EqualToHavingSpec setAggregation(Aggregation aggregation) {
         this.aggregation = aggregation;
+        return this;
     }
 
     public Number getValue() {
         return value;
     }
 
-    public void setValue(Number value) {
+    public EqualToHavingSpec setValue(Number value) {
         this.value = value;
+        return this;
     }
 }

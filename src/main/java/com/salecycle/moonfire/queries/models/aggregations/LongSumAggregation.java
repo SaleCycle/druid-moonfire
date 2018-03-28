@@ -11,7 +11,8 @@ public class LongSumAggregation extends Aggregation {
         return fieldName;
     }
 
-    public void setFieldName(String fieldName) {
+    public LongSumAggregation setFieldName(String fieldName) {
         this.fieldName = fieldName;
+        return this;
     }
 }

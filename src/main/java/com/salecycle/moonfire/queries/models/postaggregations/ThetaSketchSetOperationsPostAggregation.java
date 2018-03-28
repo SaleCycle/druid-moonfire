@@ -19,23 +19,26 @@ public class ThetaSketchSetOperationsPostAggregation extends PostAggregation {
         return func;
     }
 
-    public void setFunc(ThetaSketchFunction func) {
+    public ThetaSketchSetOperationsPostAggregation setFunc(ThetaSketchFunction func) {
         this.func = func;
+        return this;
     }
 
     public List<FieldAccessPostAggregation> getFields() {
         return fields;
     }
 
-    public void setFields(List<FieldAccessPostAggregation> fields) {
+    public ThetaSketchSetOperationsPostAggregation setFields(List<FieldAccessPostAggregation> fields) {
         this.fields = fields;
+        return this;
     }
 
     public long getSize() {
         return size;
     }
 
-    public void setSize(long size) {
+    public ThetaSketchSetOperationsPostAggregation setSize(long size) {
         this.size = size;
+        return this;
     }
 }

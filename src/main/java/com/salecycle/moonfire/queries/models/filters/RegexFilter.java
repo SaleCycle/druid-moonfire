@@ -12,15 +12,17 @@ public class RegexFilter extends Filter {
         return dimension;
     }
 
-    public void setDimension(String dimension) {
+    public RegexFilter setDimension(String dimension) {
         this.dimension = dimension;
+        return this;
     }
 
     public String getPattern() {
         return pattern;
     }
 
-    public void setPattern(String pattern) {
+    public RegexFilter setPattern(String pattern) {
         this.pattern = pattern;
+        return this;
     }
 }

@@ -11,7 +11,8 @@ public class PartialExtractionFunction extends ExtractionFunction {
         return expr;
     }
 
-    public void setExpr(String expr) {
+    public PartialExtractionFunction setExpr(String expr) {
         this.expr = expr;
+        return this;
     }
 }

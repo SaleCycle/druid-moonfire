@@ -14,15 +14,17 @@ public class IntervalFilter extends Filter {
         return dimension;
     }
 
-    public void setDimension(String dimension) {
+    public IntervalFilter setDimension(String dimension) {
         this.dimension = dimension;
+        return this;
     }
 
     public List<String> getIntervals() {
         return intervals;
     }
 
-    public void setIntervals(List<String> intervals) {
+    public IntervalFilter setIntervals(List<String> intervals) {
         this.intervals = intervals;
+        return this;
     }
 }

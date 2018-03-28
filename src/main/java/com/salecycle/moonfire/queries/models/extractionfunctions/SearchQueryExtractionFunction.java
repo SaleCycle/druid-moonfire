@@ -11,7 +11,8 @@ public class SearchQueryExtractionFunction extends ExtractionFunction {
         return query;
     }
 
-    public void setQuery(String query) {
+    public SearchQueryExtractionFunction setQuery(String query) {
         this.query = query;
+        return this;
     }
 }

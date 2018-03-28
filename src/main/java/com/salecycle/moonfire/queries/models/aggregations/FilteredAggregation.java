@@ -14,15 +14,17 @@ public class FilteredAggregation extends Aggregation {
         return filter;
     }
 
-    public void setFilter(Filter filter) {
+    public FilteredAggregation setFilter(Filter filter) {
         this.filter = filter;
+        return this;
     }
 
     public Aggregation getAggregator() {
         return aggregator;
     }
 
-    public void setAggregator(Aggregation aggregator) {
+    public FilteredAggregation setAggregator(Aggregation aggregator) {
         this.aggregator = aggregator;
+        return this;
     }
 }

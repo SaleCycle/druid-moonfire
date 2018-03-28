@@ -7,6 +7,11 @@ public class NotHavingSpec extends HavingSpec {
         setType("not");
     }
 
+    public NotHavingSpec setHavingSpec(HavingSpec havingSpec) {
+        this.havingSpec = havingSpec;
+        return this;
+    }
+
     public HavingSpec getHavingSpec() {
         return havingSpec;
     }

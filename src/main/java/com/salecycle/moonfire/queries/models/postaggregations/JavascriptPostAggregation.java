@@ -14,15 +14,17 @@ public class JavascriptPostAggregation extends PostAggregation {
         return fieldNames;
     }
 
-    public void setFieldNames(List<String> fieldNames) {
+    public JavascriptPostAggregation setFieldNames(List<String> fieldNames) {
         this.fieldNames = fieldNames;
+        return this;
     }
 
     public String getFunction() {
         return function;
     }
 
-    public void setFunction(String function) {
+    public JavascriptPostAggregation setFunction(String function) {
         this.function = function;
+        return this;
     }
 }

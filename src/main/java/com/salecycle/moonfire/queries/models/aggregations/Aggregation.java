@@ -16,7 +16,8 @@ public abstract class Aggregation {
         return name;
     }
 
-    public void setName(String name) {
+    public Aggregation setName(String name) {
         this.name = name;
+        return this;
     }
 }

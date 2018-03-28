@@ -11,7 +11,8 @@ public class DoubleFirstAggregation extends Aggregation {
         return fieldName;
     }
 
-    public void setFieldName(String fieldName) {
+    public DoubleFirstAggregation setFieldName(String fieldName) {
         this.fieldName = fieldName;
+        return this;
     }
 }

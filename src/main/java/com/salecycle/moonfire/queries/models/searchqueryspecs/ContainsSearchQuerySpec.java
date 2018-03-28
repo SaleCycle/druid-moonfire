@@ -12,15 +12,17 @@ public class ContainsSearchQuerySpec extends SearchQuerySpec {
         return value;
     }
 
-    public void setValue(String value) {
+    public ContainsSearchQuerySpec setValue(String value) {
         this.value = value;
+        return this;
     }
 
     public boolean isCase_sensitive() {
         return case_sensitive;
     }
 
-    public void setCase_sensitive(boolean case_sensitive) {
+    public ContainsSearchQuerySpec setCase_sensitive(boolean case_sensitive) {
         this.case_sensitive = case_sensitive;
+        return this;
     }
 }

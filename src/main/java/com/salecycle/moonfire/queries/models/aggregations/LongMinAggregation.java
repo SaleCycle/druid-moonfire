@@ -11,7 +11,8 @@ public class LongMinAggregation extends Aggregation {
         return fieldName;
     }
 
-    public void setFieldName(String fieldName) {
+    public LongMinAggregation setFieldName(String fieldName) {
         this.fieldName = fieldName;
+        return this;
     }
 }

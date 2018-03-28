@@ -15,23 +15,26 @@ public class ArithmeticPostAggregation extends PostAggregation {
         return fn;
     }
 
-    public void setFn(String fn) {
+    public ArithmeticPostAggregation setFn(String fn) {
         this.fn = fn;
+        return this;
     }
 
     public List<PostAggregation> getFields() {
         return fields;
     }
 
-    public void setFields(List<PostAggregation> fields) {
+    public ArithmeticPostAggregation setFields(List<PostAggregation> fields) {
         this.fields = fields;
+        return this;
     }
 
     public Ordering getOrdering() {
         return ordering;
     }
 
-    public void setOrdering(Ordering ordering) {
+    public ArithmeticPostAggregation setOrdering(Ordering ordering) {
         this.ordering = ordering;
+        return this;
     }
 }

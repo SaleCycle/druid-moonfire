@@ -12,15 +12,17 @@ public class PeriodGranularity extends ComplexGranularity {
         return period;
     }
 
-    public void setPeriod(String period) {
+    public PeriodGranularity setPeriod(String period) {
         this.period = period;
+        return this;
     }
 
     public String getTimeZone() {
         return timeZone;
     }
 
-    public void setTimeZone(String timeZone) {
+    public PeriodGranularity setTimeZone(String timeZone) {
         this.timeZone = timeZone;
+        return this;
     }
 }

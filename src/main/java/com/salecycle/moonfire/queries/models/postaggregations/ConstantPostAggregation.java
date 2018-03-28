@@ -11,7 +11,8 @@ public class ConstantPostAggregation extends PostAggregation {
         return value;
     }
 
-    public void setValue(Number value) {
+    public ConstantPostAggregation setValue(Number value) {
         this.value = value;
+        return this;
     }
 }

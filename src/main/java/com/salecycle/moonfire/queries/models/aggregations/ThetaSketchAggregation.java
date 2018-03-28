@@ -17,23 +17,26 @@ public class ThetaSketchAggregation extends Aggregation {
         return fieldName;
     }
 
-    public void setFieldName(String fieldName) {
+    public ThetaSketchAggregation setFieldName(String fieldName) {
         this.fieldName = fieldName;
+        return this;
     }
 
     public boolean isInputThetaSketch() {
         return isInputThetaSketch;
     }
 
-    public void setInputThetaSketch(boolean inputThetaSketch) {
+    public ThetaSketchAggregation setInputThetaSketch(boolean inputThetaSketch) {
         isInputThetaSketch = inputThetaSketch;
+        return this;
     }
 
     public long getSize() {
         return size;
     }
 
-    public void setSize(long size) {
+    public ThetaSketchAggregation setSize(long size) {
         this.size = size;
+        return this;
     }
 }

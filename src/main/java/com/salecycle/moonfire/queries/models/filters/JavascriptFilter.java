@@ -12,15 +12,17 @@ public class JavascriptFilter extends Filter {
         return dimension;
     }
 
-    public void setDimension(String dimension) {
+    public JavascriptFilter setDimension(String dimension) {
         this.dimension = dimension;
+        return this;
     }
 
     public String getFunction() {
         return function;
     }
 
-    public void setFunction(String function) {
+    public JavascriptFilter setFunction(String function) {
         this.function = function;
+        return this;
     }
 }

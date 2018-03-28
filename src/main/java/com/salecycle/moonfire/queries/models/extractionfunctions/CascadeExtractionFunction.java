@@ -13,7 +13,8 @@ public class CascadeExtractionFunction extends ExtractionFunction {
         return extractionFns;
     }
 
-    public void setExtractionFns(List<ExtractionFunction> extractionFns) {
+    public CascadeExtractionFunction setExtractionFns(List<ExtractionFunction> extractionFns) {
         this.extractionFns = extractionFns;
+        return this;
     }
 }

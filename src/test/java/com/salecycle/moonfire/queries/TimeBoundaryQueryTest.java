@@ -18,40 +18,33 @@ public class TimeBoundaryQueryTest {
         ObjectMapper mapper = new ObjectMapper();
         ObjectWriter writer = mapper.writerFor(TimeBoundaryQuery.class);
 
-        TimeBoundaryQuery query = new TimeBoundaryQuery();
-        query.setDataSource("sample_datasource");
-        query.setBound(Bound.maxTime);
-
-        LikeFilter likeFilter = new LikeFilter();
-        likeFilter.setDimension("myLikeDimension");
-        likeFilter.setEscape("\\");
-        likeFilter.setPattern("pattern");
-
-        RegexFilter regexFilter = new RegexFilter();
-        regexFilter.setDimension("myRegexDimension");
-        regexFilter.setPattern("$[i]^");
-
-        SelectorFilter selectorFilter = new SelectorFilter();
-        selectorFilter.setDimension("myDimension");
-        selectorFilter.setValue("myValue");
-        JavascriptExtractionFunction jsExctractionFunction = new JavascriptExtractionFunction();
-        jsExctractionFunction.setFunction("function() {}");
-        selectorFilter.setExtractionFn(jsExctractionFunction);
-        NotFilter notFilter = new NotFilter();
-        notFilter.setField(selectorFilter);
-
-        AndFilter andFilter = new AndFilter();
-        andFilter.getFields().add(likeFilter);
-        andFilter.getFields().add(notFilter);
-        andFilter.getFields().add(regexFilter);
-
-        query.setFilter(andFilter);
-
         DefaultContext context = new DefaultContext();
         context.put("timeout", 100);
         context.put("useCache", true);
         context.put("chunkPeriod", "P0D");
-        query.setContext(context);
+
+        LikeFilter likeFilter = new LikeFilter()
+                .setDimension("myLikeDimension")
+                .setEscape("\\")
+                .setPattern("pattern");
+
+        RegexFilter regexFilter = new RegexFilter()
+                .setDimension("myRegexDimension")
+                .setPattern("$[i]^");
+
+        SelectorFilter selectorFilter = new SelectorFilter()
+                .setDimension("myDimension")
+                .setValue("myValue")
+                .setExtractionFn(new JavascriptExtractionFunction().setFunction("function() {}"));
+
+        NotFilter notFilter = new NotFilter()
+                .setField(selectorFilter);
+
+        TimeBoundaryQuery query = new TimeBoundaryQuery()
+                .setDataSource("sample_datasource")
+                .setBound(Bound.maxTime)
+                .setFilter(new AndFilter().addField(likeFilter).addField(notFilter).addField(regexFilter))
+                .setContext(context);
 
         String json = writer.withDefaultPrettyPrinter().writeValueAsString(query);
         String expected =

@@ -11,7 +11,8 @@ public class RegexSearchQuerySpec extends SearchQuerySpec {
         return pattern;
     }
 
-    public void setPattern(String pattern) {
+    public RegexSearchQuerySpec setPattern(String pattern) {
         this.pattern = pattern;
+        return this;
     }
 }

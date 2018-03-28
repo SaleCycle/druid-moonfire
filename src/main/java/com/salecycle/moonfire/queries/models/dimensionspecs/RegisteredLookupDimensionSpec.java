@@ -13,23 +13,26 @@ public class RegisteredLookupDimensionSpec extends DimensionSpec {
         return dimensionName;
     }
 
-    public void setDimensionName(String dimensionName) {
+    public RegisteredLookupDimensionSpec setDimensionName(String dimensionName) {
         this.dimensionName = dimensionName;
+        return this;
     }
 
     public String getOutputName() {
         return outputName;
     }
 
-    public void setOutputName(String outputName) {
+    public RegisteredLookupDimensionSpec setOutputName(String outputName) {
         this.outputName = outputName;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public RegisteredLookupDimensionSpec setName(String name) {
         this.name = name;
+        return this;
     }
 }

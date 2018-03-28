@@ -29,71 +29,80 @@ public class SearchQuery {
         return dataSource;
     }
 
-    public void setDataSource(String dataSource) {
+    public SearchQuery setDataSource(String dataSource) {
         this.dataSource = dataSource;
+        return this;
     }
 
     public Granularity getGranularity() {
         return granularity;
     }
 
-    public void setGranularity(Granularity granularity) {
+    public SearchQuery setGranularity(Granularity granularity) {
         this.granularity = granularity;
+        return this;
     }
 
     public Filter getFilter() {
         return filter;
     }
 
-    public void setFilter(Filter filter) {
+    public SearchQuery setFilter(Filter filter) {
         this.filter = filter;
+        return this;
     }
 
     public int getLimit() {
         return limit;
     }
 
-    public void setLimit(int limit) {
+    public SearchQuery setLimit(int limit) {
         this.limit = limit;
+        return this;
     }
 
     public List<String> getIntervals() {
         return intervals;
     }
 
-    public void setIntervals(List<String> intervals) {
+    public SearchQuery setIntervals(List<String> intervals) {
         this.intervals = intervals;
+        return this;
     }
 
     public List<String> getSearchDimensions() {
         return searchDimensions;
     }
 
-    public void setSearchDimensions(List<String> searchDimensions) {
+    public SearchQuery setSearchDimensions(List<String> searchDimensions) {
         this.searchDimensions = searchDimensions;
+        return this;
     }
 
     public SearchQuerySpec getQuery() {
         return query;
     }
 
-    public void setQuery(SearchQuerySpec query) {
+    public SearchQuery setQuery(SearchQuerySpec query) {
         this.query = query;
+        return this;
     }
 
     public Ordering getSort() {
         return sort;
     }
 
-    public void setSort(Ordering sort) {
+    public SearchQuery setSort(Ordering sort) {
         this.sort = sort;
+        return this;
     }
 
     public Context getContext() {
         return context;
     }
 
-    public void setContext(Context context) {
+    public SearchQuery setContext(Context context) {
         this.context = context;
+        return this;
     }
 }

@@ -11,7 +11,8 @@ public class FloatFirstAggregation extends Aggregation {
         return fieldName;
     }
 
-    public void setFieldName(String fieldName) {
+    public FloatFirstAggregation setFieldName(String fieldName) {
         this.fieldName = fieldName;
+        return this;
     }
 }

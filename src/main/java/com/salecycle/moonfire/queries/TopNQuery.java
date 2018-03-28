@@ -31,79 +31,89 @@ public class TopNQuery {
         return dataSource;
     }
 
-    public void setDataSource(String dataSource) {
+    public TopNQuery setDataSource(String dataSource) {
         this.dataSource = dataSource;
+        return this;
     }
 
     public List<String> getIntervals() {
         return intervals;
     }
 
-    public void setIntervals(List<String> intervals) {
+    public TopNQuery setIntervals(List<String> intervals) {
         this.intervals = intervals;
+        return this;
     }
 
     public Granularity getGranularity() {
         return granularity;
     }
 
-    public void setGranularity(Granularity granularity) {
+    public TopNQuery setGranularity(Granularity granularity) {
         this.granularity = granularity;
+        return this;
     }
 
     public Filter getFilter() {
         return filter;
     }
 
-    public void setFilter(Filter filter) {
+    public TopNQuery setFilter(Filter filter) {
         this.filter = filter;
+        return this;
     }
 
     public List<Aggregation> getAggregations() {
         return aggregations;
     }
 
-    public void setAggregations(List<Aggregation> aggregations) {
+    public TopNQuery setAggregations(List<Aggregation> aggregations) {
         this.aggregations = aggregations;
+        return this;
     }
 
     public List<PostAggregation> getPostAggregations() {
         return postAggregations;
     }
 
-    public void setPostAggregations(List<PostAggregation> postAggregations) {
+    public TopNQuery setPostAggregations(List<PostAggregation> postAggregations) {
         this.postAggregations = postAggregations;
+        return this;
     }
 
     public DimensionSpec getDimension() {
         return dimension;
     }
 
-    public void setDimension(DimensionSpec dimension) {
+    public TopNQuery setDimension(DimensionSpec dimension) {
         this.dimension = dimension;
+        return this;
     }
 
     public int getThreshold() {
         return threshold;
     }
 
-    public void setThreshold(int threshold) {
+    public TopNQuery setThreshold(int threshold) {
         this.threshold = threshold;
+        return this;
     }
 
     public TopNMetricSpec getMetric() {
         return metric;
     }
 
-    public void setMetric(TopNMetricSpec metric) {
+    public TopNQuery setMetric(TopNMetricSpec metric) {
         this.metric = metric;
+        return this;
     }
 
     public Context getContext() {
         return context;
     }
 
-    public void setContext(Context context) {
+    public TopNQuery setContext(Context context) {
         this.context = context;
+        return this;
     }
 }

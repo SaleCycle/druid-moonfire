@@ -12,15 +12,17 @@ public class SubstringExtractionFunction extends ExtractionFunction {
         return index;
     }
 
-    public void setIndex(long index) {
+    public SubstringExtractionFunction setIndex(long index) {
         this.index = index;
+        return this;
     }
 
     public Long getLength() {
         return length;
     }
 
-    public void setLength(Long length) {
+    public SubstringExtractionFunction setLength(Long length) {
         this.length = length;
+        return this;
     }
 }

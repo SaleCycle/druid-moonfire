@@ -13,7 +13,8 @@ public class DoubleGreatestPostAggregation extends PostAggregation {
         return fields;
     }
 
-    public void setFields(List<PostAggregation> fields) {
+    public DoubleGreatestPostAggregation setFields(List<PostAggregation> fields) {
         this.fields = fields;
+        return this;
     }
 }

@@ -14,15 +14,17 @@ public class SearchFilter extends Filter {
         return dimension;
     }
 
-    public void setDimension(String dimension) {
+    public SearchFilter setDimension(String dimension) {
         this.dimension = dimension;
+        return this;
     }
 
     public SearchQuerySpec getQuery() {
         return query;
     }
 
-    public void setQuery(SearchQuerySpec query) {
+    public SearchFilter setQuery(SearchQuerySpec query) {
         this.query = query;
+        return this;
     }
 }

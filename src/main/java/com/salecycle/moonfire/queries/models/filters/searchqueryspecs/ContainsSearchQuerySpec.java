@@ -11,7 +11,8 @@ public class ContainsSearchQuerySpec extends SearchQuerySpec {
         return caseSentitive;
     }
 
-    public void setCaseSentitive(boolean caseSentitive) {
+    public ContainsSearchQuerySpec setCaseSentitive(boolean caseSentitive) {
         this.caseSentitive = caseSentitive;
+        return this;
     }
 }

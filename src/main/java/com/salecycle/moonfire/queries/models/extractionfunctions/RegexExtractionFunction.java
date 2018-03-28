@@ -14,31 +14,35 @@ public class RegexExtractionFunction extends ExtractionFunction {
         return expr;
     }
 
-    public void setExpr(String expr) {
+    public RegexExtractionFunction setExpr(String expr) {
         this.expr = expr;
+        return this;
     }
 
     public long getIndex() {
         return index;
     }
 
-    public void setIndex(long index) {
+    public RegexExtractionFunction setIndex(long index) {
         this.index = index;
+        return this;
     }
 
     public boolean isReplaceMissingValue() {
         return replaceMissingValue;
     }
 
-    public void setReplaceMissingValue(boolean replaceMissingValue) {
+    public RegexExtractionFunction setReplaceMissingValue(boolean replaceMissingValue) {
         this.replaceMissingValue = replaceMissingValue;
+        return this;
     }
 
     public String getReplaceMissingValueWith() {
         return replaceMissingValueWith;
     }
 
-    public void setReplaceMissingValueWith(String replaceMissingValueWith) {
+    public RegexExtractionFunction setReplaceMissingValueWith(String replaceMissingValueWith) {
         this.replaceMissingValueWith = replaceMissingValueWith;
+        return this;
     }
 }

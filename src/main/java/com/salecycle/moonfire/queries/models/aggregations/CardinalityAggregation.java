@@ -19,31 +19,35 @@ public class CardinalityAggregation extends Aggregation {
         return fieldName;
     }
 
-    public void setFieldName(String fieldName) {
+    public CardinalityAggregation setFieldName(String fieldName) {
         this.fieldName = fieldName;
+        return this;
     }
 
     public List<DimensionSpec> getFields() {
         return fields;
     }
 
-    protected void setFields(List<DimensionSpec> fields) {
+    public CardinalityAggregation setFields(List<DimensionSpec> fields) {
         this.fields = fields;
+        return this;
     }
 
     public boolean isByRow() {
         return byRow;
     }
 
-    public void setByRow(boolean byRow) {
+    public CardinalityAggregation setByRow(boolean byRow) {
         this.byRow = byRow;
+        return this;
     }
 
     public boolean isRound() {
         return round;
     }
 
-    public void setRound(boolean round) {
+    public CardinalityAggregation setRound(boolean round) {
         this.round = round;
+        return this;
     }
 }

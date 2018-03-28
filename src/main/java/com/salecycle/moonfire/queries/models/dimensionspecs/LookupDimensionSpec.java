@@ -19,59 +19,62 @@ public class LookupDimensionSpec extends DimensionSpec {
         return dimension;
     }
 
-    public void setDimension(String dimension) {
+    public LookupDimensionSpec setDimension(String dimension) {
         this.dimension = dimension;
+        return this;
     }
 
     public String getOutputName() {
         return outputName;
     }
 
-    public void setOutputName(String outputName) {
+    public LookupDimensionSpec setOutputName(String outputName) {
         this.outputName = outputName;
+        return this;
     }
 
     public String getReplaceMissingValueWith() {
         return replaceMissingValueWith;
     }
 
-    public void setReplaceMissingValueWith(String replaceMissingValueWith) {
+    public LookupDimensionSpec setReplaceMissingValueWith(String replaceMissingValueWith) {
         this.replaceMissingValueWith = replaceMissingValueWith;
-    }
-
-    public boolean getRetainMissingValue() {
-        return retainMissingValue;
-    }
-
-    public void setRetainMissingValue(boolean retainMissingValue) {
-        this.retainMissingValue = retainMissingValue;
-    }
-
-    public Lookup getLookup() {
-        return lookup;
-    }
-
-    public void setLookup(Lookup lookup) {
-        this.lookup = lookup;
+        return this;
     }
 
     public boolean isRetainMissingValue() {
         return retainMissingValue;
     }
 
+    public LookupDimensionSpec setRetainMissingValue(boolean retainMissingValue) {
+        this.retainMissingValue = retainMissingValue;
+        return this;
+    }
+
+    public Lookup getLookup() {
+        return lookup;
+    }
+
+    public LookupDimensionSpec setLookup(Lookup lookup) {
+        this.lookup = lookup;
+        return this;
+    }
+
     public boolean isInjective() {
         return injective;
     }
 
-    public void setInjective(boolean injective) {
+    public LookupDimensionSpec setInjective(boolean injective) {
         this.injective = injective;
+        return this;
     }
 
     public boolean isOptimize() {
         return optimize;
     }
 
-    public void setOptimize(boolean optimize) {
+    public LookupDimensionSpec setOptimize(boolean optimize) {
         this.optimize = optimize;
+        return this;
     }
 }

@@ -13,7 +13,8 @@ public class QueryFilterHavingSpec extends HavingSpec {
         return filter;
     }
 
-    public void setFilter(Filter filter) {
+    public QueryFilterHavingSpec setFilter(Filter filter) {
         this.filter = filter;
+        return this;
     }
 }

@@ -14,15 +14,17 @@ public class DimensionSelectorHavingSpec extends HavingSpec {
         return dimension;
     }
 
-    public void setDimension(DimensionSpec dimension) {
+    public DimensionSelectorHavingSpec setDimension(DimensionSpec dimension) {
         this.dimension = dimension;
+        return this;
     }
 
     public Object getValue() {
         return value;
     }
 
-    public void setValue(Object value) {
+    public DimensionSelectorHavingSpec setValue(Object value) {
         this.value = value;
+        return this;
     }
 }

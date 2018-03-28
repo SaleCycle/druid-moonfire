@@ -24,55 +24,62 @@ public class SegmentMetadataQuery {
         return dataSource;
     }
 
-    public void setDataSource(String dataSource) {
+    public SegmentMetadataQuery setDataSource(String dataSource) {
         this.dataSource = dataSource;
+        return this;
     }
 
     public List<String> getIntervals() {
         return intervals;
     }
 
-    public void setIntervals(List<String> intervals) {
+    public SegmentMetadataQuery setIntervals(List<String> intervals) {
         this.intervals = intervals;
+        return this;
     }
 
     public ToInclude getToInclude() {
         return toInclude;
     }
 
-    public void setToInclude(ToInclude toInclude) {
+    public SegmentMetadataQuery setToInclude(ToInclude toInclude) {
         this.toInclude = toInclude;
+        return this;
     }
 
     public boolean isMerge() {
         return merge;
     }
 
-    public void setMerge(boolean merge) {
+    public SegmentMetadataQuery setMerge(boolean merge) {
         this.merge = merge;
+        return this;
     }
 
     public List<AnalysisType> getAnalysisTypes() {
         return analysisTypes;
     }
 
-    public void setAnalysisTypes(List<AnalysisType> analysisTypes) {
+    public SegmentMetadataQuery setAnalysisTypes(List<AnalysisType> analysisTypes) {
         this.analysisTypes = analysisTypes;
+        return this;
     }
 
     public boolean isLenietAggregatorMerge() {
         return lenietAggregatorMerge;
     }
 
-    public void setLenietAggregatorMerge(boolean lenietAggregatorMerge) {
+    public SegmentMetadataQuery setLenietAggregatorMerge(boolean lenietAggregatorMerge) {
         this.lenietAggregatorMerge = lenietAggregatorMerge;
+        return this;
     }
 
     public Context getContext() {
         return context;
     }
 
-    public void setContext(Context context) {
+    public SegmentMetadataQuery setContext(Context context) {
         this.context = context;
+        return this;
     }
 }

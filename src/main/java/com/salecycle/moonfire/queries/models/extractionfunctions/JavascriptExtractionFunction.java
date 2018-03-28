@@ -12,15 +12,17 @@ public class JavascriptExtractionFunction extends ExtractionFunction {
         return function;
     }
 
-    public void setFunction(String function) {
+    public JavascriptExtractionFunction setFunction(String function) {
         this.function = function;
+        return this;
     }
 
     public boolean isInjective() {
         return injective;
     }
 
-    public void setInjective(boolean injective) {
+    public JavascriptExtractionFunction setInjective(boolean injective) {
         this.injective = injective;
+        return this;
     }
 }

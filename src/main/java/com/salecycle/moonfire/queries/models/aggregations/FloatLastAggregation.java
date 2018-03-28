@@ -11,7 +11,8 @@ public class FloatLastAggregation extends Aggregation {
         return fieldName;
     }
 
-    public void setFieldName(String fieldName) {
+    public FloatLastAggregation setFieldName(String fieldName) {
         this.fieldName = fieldName;
+        return this;
     }
 }

@@ -15,15 +15,17 @@ public class DataSourceMetadataQuery {
         return dataSource;
     }
 
-    public void setDataSource(String dataSource) {
+    public DataSourceMetadataQuery setDataSource(String dataSource) {
         this.dataSource = dataSource;
+        return this;
     }
 
     public Context getContext() {
         return context;
     }
 
-    public void setContext(Context context) {
+    public DataSourceMetadataQuery setContext(Context context) {
         this.context = context;
+        return this;
     }
 }

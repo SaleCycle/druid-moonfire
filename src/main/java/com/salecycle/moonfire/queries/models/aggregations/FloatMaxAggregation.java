@@ -11,7 +11,8 @@ public class FloatMaxAggregation extends Aggregation {
         return fieldName;
     }
 
-    public void setFieldName(String fieldName) {
+    public FloatMaxAggregation setFieldName(String fieldName) {
         this.fieldName = fieldName;
+        return this;
     }
 }

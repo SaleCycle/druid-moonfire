@@ -13,7 +13,8 @@ public class OrHavingSpec extends HavingSpec {
         return havingSpecs;
     }
 
-    public void setHavingSpecs(List<HavingSpec> havingSpecs) {
+    public OrHavingSpec setHavingSpecs(List<HavingSpec> havingSpecs) {
         this.havingSpecs = havingSpecs;
+        return this;
     }
 }

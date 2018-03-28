@@ -10,27 +10,31 @@ public class DefaultDimension extends DimensionSpec {
     public DefaultDimension() {
         setType("default");
     }
+
     public String getDimension() {
         return dimension;
     }
 
-    public void setDimension(String dimension) {
+    public DefaultDimension setDimension(String dimension) {
         this.dimension = dimension;
+        return this;
     }
 
     public String getOutputName() {
         return outputName;
     }
 
-    public void setOutputName(String outputName) {
+    public DefaultDimension setOutputName(String outputName) {
         this.outputName = outputName;
+        return this;
     }
 
     public OutputType getOutputType() {
         return outputType;
     }
 
-    public void setOutputType(OutputType outputType) {
+    public DefaultDimension setOutputType(OutputType outputType) {
         this.outputType = outputType;
+        return this;
     }
 }

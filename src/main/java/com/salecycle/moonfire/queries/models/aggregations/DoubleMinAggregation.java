@@ -11,7 +11,8 @@ public class DoubleMinAggregation extends Aggregation {
         return fieldName;
     }
 
-    public void setFieldName(String fieldName) {
+    public DoubleMinAggregation setFieldName(String fieldName) {
         this.fieldName = fieldName;
+        return this;
     }
 }

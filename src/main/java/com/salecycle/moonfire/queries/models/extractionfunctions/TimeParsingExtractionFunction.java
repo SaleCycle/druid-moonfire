@@ -12,15 +12,17 @@ public class TimeParsingExtractionFunction extends ExtractionFunction {
         return timeFormat;
     }
 
-    public void setTimeFormat(String timeFormat) {
+    public TimeParsingExtractionFunction setTimeFormat(String timeFormat) {
         this.timeFormat = timeFormat;
+        return this;
     }
 
     public String getResultFormat() {
         return resultFormat;
     }
 
-    public void setResultFormat(String resultFormat) {
+    public TimeParsingExtractionFunction setResultFormat(String resultFormat) {
         this.resultFormat = resultFormat;
+        return this;
     }
 }

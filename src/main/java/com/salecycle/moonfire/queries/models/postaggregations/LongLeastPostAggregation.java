@@ -13,7 +13,8 @@ public class LongLeastPostAggregation extends PostAggregation {
         return fields;
     }
 
-    public void setFields(List<PostAggregation> fields) {
+    public LongLeastPostAggregation setFields(List<PostAggregation> fields) {
         this.fields = fields;
+        return this;
     }
 }

@@ -11,7 +11,8 @@ public class NotFilter extends Filter {
         return field;
     }
 
-    public void setField(Filter field) {
+    public NotFilter setField(Filter field) {
         this.field = field;
+        return this;
     }
 }

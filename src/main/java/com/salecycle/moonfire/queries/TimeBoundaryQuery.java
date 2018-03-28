@@ -19,31 +19,35 @@ public class TimeBoundaryQuery {
         return dataSource;
     }
 
-    public void setDataSource(String dataSource) {
+    public TimeBoundaryQuery setDataSource(String dataSource) {
         this.dataSource = dataSource;
+        return this;
     }
 
     public Bound getBound() {
         return bound;
     }
 
-    public void setBound(Bound bound) {
+    public TimeBoundaryQuery setBound(Bound bound) {
         this.bound = bound;
+        return this;
     }
 
     public Filter getFilter() {
         return filter;
     }
 
-    public void setFilter(Filter filter) {
+    public TimeBoundaryQuery setFilter(Filter filter) {
         this.filter = filter;
+        return this;
     }
 
     public Context getContext() {
         return context;
     }
 
-    public void setContext(Context context) {
+    public TimeBoundaryQuery setContext(Context context) {
         this.context = context;
+        return this;
     }
 }

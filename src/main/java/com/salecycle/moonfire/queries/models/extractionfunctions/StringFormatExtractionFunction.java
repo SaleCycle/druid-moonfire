@@ -12,15 +12,17 @@ public class StringFormatExtractionFunction extends ExtractionFunction {
         return format;
     }
 
-    public void setFormat(String format) {
+    public StringFormatExtractionFunction setFormat(String format) {
         this.format = format;
+        return this;
     }
 
     public NullHandling getNullHandling() {
         return nullHandling;
     }
 
-    public void setNullHandling(NullHandling nullHandling) {
+    public StringFormatExtractionFunction setNullHandling(NullHandling nullHandling) {
         this.nullHandling = nullHandling;
+        return this;
     }
 }

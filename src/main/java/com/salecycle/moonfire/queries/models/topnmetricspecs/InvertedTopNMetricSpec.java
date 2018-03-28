@@ -11,7 +11,8 @@ public class InvertedTopNMetricSpec extends TopNMetricSpec {
         return metric;
     }
 
-    public void setMetric(String metric) {
+    public InvertedTopNMetricSpec setMetric(String metric) {
         this.metric = metric;
+        return this;
     }
 }

@@ -11,7 +11,8 @@ public class FragmentSearchQuerySpec extends SearchQuerySpec {
         return caseSentitive;
     }
 
-    public void setCaseSentitive(boolean caseSentitive) {
+    public FragmentSearchQuerySpec setCaseSentitive(boolean caseSentitive) {
         this.caseSentitive = caseSentitive;
+        return this;
     }
 }

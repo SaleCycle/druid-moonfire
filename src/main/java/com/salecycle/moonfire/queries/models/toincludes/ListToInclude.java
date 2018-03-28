@@ -13,7 +13,8 @@ public class ListToInclude extends ToInclude {
         return columns;
     }
 
-    public void setColumns(List<String> columns) {
+    public ListToInclude setColumns(List<String> columns) {
         this.columns = columns;
+        return this;
     }
 }

@@ -13,7 +13,8 @@ public class DoubleLeastPostAggregation extends PostAggregation {
         return fields;
     }
 
-    public void setFields(List<PostAggregation> fields) {
+    public DoubleLeastPostAggregation setFields(List<PostAggregation> fields) {
         this.fields = fields;
+        return this;
     }
 }

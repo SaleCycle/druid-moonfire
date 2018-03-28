@@ -18,7 +18,8 @@ public abstract class Filter {
         return extractionFn;
     }
 
-    public void setExtractionFn(ExtractionFunction extractionFn) {
+    public <T extends Filter> T setExtractionFn(ExtractionFunction extractionFn) {
         this.extractionFn = extractionFn;
+        return (T)this;
     }
 }

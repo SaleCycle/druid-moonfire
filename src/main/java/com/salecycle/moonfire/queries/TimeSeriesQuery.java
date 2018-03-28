@@ -27,63 +27,71 @@ public class TimeSeriesQuery {
         return dataSource;
     }
 
-    public void setDataSource(String dataSource) {
+    public TimeSeriesQuery setDataSource(String dataSource) {
         this.dataSource = dataSource;
+        return this;
     }
 
     public Granularity getGranularity() {
         return granularity;
     }
 
-    public void setGranularity(Granularity granularity) {
+    public TimeSeriesQuery setGranularity(Granularity granularity) {
         this.granularity = granularity;
+        return this;
     }
 
     public boolean isDescending() {
         return descending;
     }
 
-    public void setDescending(boolean descending) {
+    public TimeSeriesQuery setDescending(boolean descending) {
         this.descending = descending;
+        return this;
     }
 
     public List<String> getIntervals() {
         return intervals;
     }
 
-    public void setIntervals(List<String> intervals) {
+    public TimeSeriesQuery setIntervals(List<String> intervals) {
         this.intervals = intervals;
+        return this;
     }
 
     public Filter getFilter() {
         return filter;
     }
 
-    public void setFilter(Filter filter) {
+    public TimeSeriesQuery setFilter(Filter filter) {
         this.filter = filter;
+        return this;
     }
 
     public List<Aggregation> getAggregations() {
         return aggregations;
     }
 
-    public void setAggregations(List<Aggregation> aggregations) {
+    public TimeSeriesQuery setAggregations(List<Aggregation> aggregations) {
         this.aggregations = aggregations;
+        return this;
     }
 
     public List<PostAggregation> getPostAggregations() {
         return postAggregations;
     }
 
-    public void setPostAggregations(List<PostAggregation> postAggregations) {
+    public TimeSeriesQuery setPostAggregations(List<PostAggregation> postAggregations) {
         this.postAggregations = postAggregations;
+        return this;
     }
 
     public Context getContext() {
         return context;
     }
 
-    public void setContext(Context context) {
+    public TimeSeriesQuery setContext(Context context) {
         this.context = context;
+        return this;
     }
 }

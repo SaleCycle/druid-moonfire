@@ -15,7 +15,8 @@ public class ThetaSketchEstimatePostAggregation extends PostAggregation {
         return field;
     }
 
-    public void setField(FieldAccessPostAggregation field) {
+    public ThetaSketchEstimatePostAggregation setField(FieldAccessPostAggregation field) {
         this.field = field;
+        return this;
     }
 }

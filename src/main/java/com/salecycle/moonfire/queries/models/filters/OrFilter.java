@@ -14,7 +14,8 @@ public class OrFilter extends Filter {
         return fields;
     }
 
-    public void setFields(List<Filter> fields) {
+    public OrFilter setFields(List<Filter> fields) {
         this.fields = fields;
+        return this;
     }
 }

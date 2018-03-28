@@ -13,23 +13,26 @@ public class LikeFilter extends Filter {
         return dimension;
     }
 
-    public void setDimension(String dimension) {
+    public LikeFilter setDimension(String dimension) {
         this.dimension = dimension;
+        return this;
     }
 
     public String getPattern() {
         return pattern;
     }
 
-    public void setPattern(String pattern) {
+    public LikeFilter setPattern(String pattern) {
         this.pattern = pattern;
+        return this;
     }
 
     public String getEscape() {
         return escape;
     }
 
-    public void setEscape(String escape) {
+    public LikeFilter setEscape(String escape) {
         this.escape = escape;
+        return this;
     }
 }

@@ -13,23 +13,26 @@ public class RegisteredLookupExtractionFunction extends ExtractionFunction {
         return lookup;
     }
 
-    public void setLookup(String lookup) {
+    public RegisteredLookupExtractionFunction setLookup(String lookup) {
         this.lookup = lookup;
+        return this;
     }
 
     public boolean isRetainMissingValue() {
         return retainMissingValue;
     }
 
-    public void setRetainMissingValue(boolean retainMissingValue) {
+    public RegisteredLookupExtractionFunction setRetainMissingValue(boolean retainMissingValue) {
         this.retainMissingValue = retainMissingValue;
+        return this;
     }
 
     public boolean isInjective() {
         return injective;
     }
 
-    public void setInjective(boolean injective) {
+    public RegisteredLookupExtractionFunction setInjective(boolean injective) {
         this.injective = injective;
+        return this;
     }
 }

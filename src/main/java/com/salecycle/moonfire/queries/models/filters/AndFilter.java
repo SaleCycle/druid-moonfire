@@ -14,7 +14,13 @@ public class AndFilter extends Filter {
         return fields;
     }
 
-    public void setFields(List<Filter> fields) {
+    public AndFilter setFields(List<Filter> fields) {
         this.fields = fields;
+        return this;
+    }
+
+    public AndFilter addField(Filter field) {
+        this.fields.add(field);
+        return this;
     }
 }

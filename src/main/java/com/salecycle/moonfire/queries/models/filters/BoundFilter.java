@@ -18,47 +18,53 @@ public class BoundFilter extends Filter {
         return dimension;
     }
 
-    public void setDimension(String dimension) {
+    public BoundFilter setDimension(String dimension) {
         this.dimension = dimension;
+        return this;
     }
 
     public String getLower() {
         return lower;
     }
 
-    public void setLower(String lower) {
+    public BoundFilter setLower(String lower) {
         this.lower = lower;
+        return this;
     }
 
     public String getUpper() {
         return upper;
     }
 
-    public void setUpper(String upper) {
+    public BoundFilter setUpper(String upper) {
         this.upper = upper;
+        return this;
     }
 
     public boolean isLowerScrict() {
         return lowerScrict;
     }
 
-    public void setLowerScrict(boolean lowerScrict) {
+    public BoundFilter setLowerScrict(boolean lowerScrict) {
         this.lowerScrict = lowerScrict;
+        return this;
     }
 
     public boolean isUpperStrict() {
         return upperStrict;
     }
 
-    public void setUpperStrict(boolean upperStrict) {
+    public BoundFilter setUpperStrict(boolean upperStrict) {
         this.upperStrict = upperStrict;
+        return this;
     }
 
     public Ordering getOrdering() {
         return ordering;
     }
 
-    public void setOrdering(Ordering ordering) {
+    public BoundFilter setOrdering(Ordering ordering) {
         this.ordering = ordering;
+        return this;
     }
 }

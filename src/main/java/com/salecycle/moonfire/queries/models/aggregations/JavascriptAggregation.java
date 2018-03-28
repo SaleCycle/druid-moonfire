@@ -16,31 +16,35 @@ public class JavascriptAggregation extends Aggregation {
         return fieldNames;
     }
 
-    public void setFieldNames(List<String> fieldNames) {
+    public JavascriptAggregation setFieldNames(List<String> fieldNames) {
         this.fieldNames = fieldNames;
+        return this;
     }
 
     public String getFnAggregate() {
         return fnAggregate;
     }
 
-    public void setFnAggregate(String fnAggregate) {
+    public JavascriptAggregation setFnAggregate(String fnAggregate) {
         this.fnAggregate = fnAggregate;
+        return this;
     }
 
     public String getFnCombine() {
         return fnCombine;
     }
 
-    public void setFnCombine(String fnCombine) {
+    public JavascriptAggregation setFnCombine(String fnCombine) {
         this.fnCombine = fnCombine;
+        return this;
     }
 
     public String getFnReset() {
         return fnReset;
     }
 
-    public void setFnReset(String fnReset) {
+    public JavascriptAggregation setFnReset(String fnReset) {
         this.fnReset = fnReset;
+        return this;
     }
 }

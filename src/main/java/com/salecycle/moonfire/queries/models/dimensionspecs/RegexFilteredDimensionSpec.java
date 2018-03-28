@@ -12,15 +12,17 @@ public class RegexFilteredDimensionSpec extends DimensionSpec {
         return delegate;
     }
 
-    public void setDelegate(DimensionSpec delegate) {
+    public RegexFilteredDimensionSpec setDelegate(DimensionSpec delegate) {
         this.delegate = delegate;
+        return this;
     }
 
     public String getPattern() {
         return pattern;
     }
 
-    public void setPattern(String pattern) {
+    public RegexFilteredDimensionSpec setPattern(String pattern) {
         this.pattern = pattern;
+        return this;
     }
 }

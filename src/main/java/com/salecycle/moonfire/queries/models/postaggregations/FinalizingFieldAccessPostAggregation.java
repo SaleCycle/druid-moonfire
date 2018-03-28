@@ -11,7 +11,8 @@ public class FinalizingFieldAccessPostAggregation extends PostAggregation {
         return fieldName;
     }
 
-    public void setFieldName(String fieldName) {
+    public FinalizingFieldAccessPostAggregation setFieldName(String fieldName) {
         this.fieldName = fieldName;
+        return this;
     }
 }

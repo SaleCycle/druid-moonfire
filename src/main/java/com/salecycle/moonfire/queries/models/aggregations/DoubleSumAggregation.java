@@ -11,7 +11,8 @@ public class DoubleSumAggregation extends Aggregation {
         return fieldName;
     }
 
-    public void setFieldName(String fieldName) {
+    public DoubleSumAggregation setFieldName(String fieldName) {
         this.fieldName = fieldName;
+        return this;
     }
 }

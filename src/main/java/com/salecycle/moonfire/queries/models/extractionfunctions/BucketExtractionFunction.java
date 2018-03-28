@@ -12,15 +12,17 @@ public class BucketExtractionFunction extends ExtractionFunction {
         return size;
     }
 
-    public void setSize(Long size) {
+    public BucketExtractionFunction setSize(Long size) {
         this.size = size;
+        return this;
     }
 
     public Long getOffset() {
         return offset;
     }
 
-    public void setOffset(Long offset) {
+    public BucketExtractionFunction setOffset(Long offset) {
         this.offset = offset;
+        return this;
     }
 }

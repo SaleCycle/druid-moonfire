@@ -11,7 +11,8 @@ public class NumericTopNMetricSpec extends TopNMetricSpec {
         return metric;
     }
 
-    public void setMetric(String metric) {
+    public NumericTopNMetricSpec setMetric(String metric) {
         this.metric = metric;
+        return this;
     }
 }

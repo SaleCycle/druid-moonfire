@@ -13,7 +13,8 @@ public class LongGreatestPostAggregation extends PostAggregation {
         return fields;
     }
 
-    public void setFields(List<PostAggregation> fields) {
+    public LongGreatestPostAggregation setFields(List<PostAggregation> fields) {
         this.fields = fields;
+        return this;
     }
 }

@@ -15,15 +15,17 @@ public class InFilter extends Filter {
         return dimension;
     }
 
-    public void setDimension(String dimension) {
+    public InFilter setDimension(String dimension) {
         this.dimension = dimension;
+        return this;
     }
 
     public List<String> getValues() {
         return values;
     }
 
-    public void setValues(List<String> values) {
+    public InFilter setValues(List<String> values) {
         this.values = values;
+        return this;
     }
 }

@@ -11,7 +11,8 @@ public class InsensitiveContainsSearchQuerySpec extends SearchQuerySpec {
         return value;
     }
 
-    public void setValue(String value) {
+    public InsensitiveContainsSearchQuerySpec setValue(String value) {
         this.value = value;
+        return this;
     }
 }

@@ -15,39 +15,44 @@ public class TimeFormatExtractionFunction extends ExtractionFunction {
         return format;
     }
 
-    public void setFormat(String format) {
+    public TimeFormatExtractionFunction setFormat(String format) {
         this.format = format;
+        return this;
     }
 
     public String getTimeZone() {
         return timeZone;
     }
 
-    public void setTimeZone(String timeZone) {
+    public TimeFormatExtractionFunction setTimeZone(String timeZone) {
         this.timeZone = timeZone;
+        return this;
     }
 
     public String getLocale() {
         return locale;
     }
 
-    public void setLocale(String locale) {
+    public TimeFormatExtractionFunction setLocale(String locale) {
         this.locale = locale;
+        return this;
     }
 
     public String getGranularity() {
         return granularity;
     }
 
-    public void setGranularity(String granularity) {
+    public TimeFormatExtractionFunction setGranularity(String granularity) {
         this.granularity = granularity;
+        return this;
     }
 
     public Boolean getAsMillis() {
         return asMillis;
     }
 
-    public void setAsMillis(Boolean asMillis) {
+    public TimeFormatExtractionFunction setAsMillis(Boolean asMillis) {
         this.asMillis = asMillis;
+        return this;
     }
 }

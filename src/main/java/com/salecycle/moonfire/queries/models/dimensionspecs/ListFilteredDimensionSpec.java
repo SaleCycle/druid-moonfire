@@ -15,23 +15,26 @@ public class ListFilteredDimensionSpec extends DimensionSpec {
         return delegate;
     }
 
-    public void setDelegate(DimensionSpec delegate) {
+    public ListFilteredDimensionSpec setDelegate(DimensionSpec delegate) {
         this.delegate = delegate;
+        return this;
     }
 
     public List<String> getValues() {
         return values;
     }
 
-    public void setValues(List<String> values) {
+    public ListFilteredDimensionSpec setValues(List<String> values) {
         this.values = values;
+        return this;
     }
 
     public boolean isWhitelist() {
         return isWhitelist;
     }
 
-    public void setWhitelist(boolean whitelist) {
+    public ListFilteredDimensionSpec setWhitelist(boolean whitelist) {
         isWhitelist = whitelist;
+        return this;
     }
 }

@@ -14,15 +14,17 @@ public class LessThanHavingSpec extends HavingSpec {
         return aggregation;
     }
 
-    public void setAggregation(Aggregation aggregation) {
+    public LessThanHavingSpec setAggregation(Aggregation aggregation) {
         this.aggregation = aggregation;
+        return this;
     }
 
     public Number getValue() {
         return value;
     }
 
-    public void setValue(Number value) {
+    public LessThanHavingSpec setValue(Number value) {
         this.value = value;
+        return this;
     }
 }

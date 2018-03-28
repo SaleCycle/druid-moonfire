@@ -11,7 +11,8 @@ public class DoubleMaxAggregation extends Aggregation {
         return fieldName;
     }
 
-    public void setFieldName(String fieldName) {
+    public DoubleMaxAggregation setFieldName(String fieldName) {
         this.fieldName = fieldName;
+        return this;
     }
 }

@@ -15,15 +15,17 @@ public class FragmentSearchQuerySpec extends SearchQuerySpec {
         return case_sensitive;
     }
 
-    public void setCase_sensitive(boolean case_sensitive) {
+    public FragmentSearchQuerySpec setCase_sensitive(boolean case_sensitive) {
         this.case_sensitive = case_sensitive;
+        return this;
     }
 
     public List<String> getValues() {
         return values;
     }
 
-    public void setValues(List<String> values) {
+    public FragmentSearchQuerySpec setValues(List<String> values) {
         this.values = values;
+        return this;
     }
 }

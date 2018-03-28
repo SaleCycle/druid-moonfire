@@ -11,7 +11,8 @@ public class NamespaceLookup extends Lookup {
         return namespace;
     }
 
-    public void setNamespace(String namespace) {
+    public NamespaceLookup setNamespace(String namespace) {
         this.namespace = namespace;
+        return this;
     }
 }

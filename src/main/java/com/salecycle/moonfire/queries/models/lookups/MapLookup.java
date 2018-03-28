@@ -14,15 +14,17 @@ public class MapLookup extends Lookup {
         return map;
     }
 
-    public void setMap(HashMap<String, String> map) {
+    public MapLookup setMap(HashMap<String, String> map) {
         this.map = map;
+        return this;
     }
 
     public Boolean getOneToOne() {
         return isOneToOne;
     }
 
-    public void setOneToOne(Boolean oneToOne) {
+    public MapLookup setOneToOne(Boolean oneToOne) {
         isOneToOne = oneToOne;
+        return this;
     }
 }

@@ -15,13 +15,13 @@ public class DataSourceMetadataQueryTest {
         ObjectMapper mapper = new ObjectMapper();
         ObjectWriter writer = mapper.writerFor(DataSourceMetadataQuery.class);
 
-        DataSourceMetadataQuery query = new DataSourceMetadataQuery();
-        query.setDataSource("sample_datasource");
         DefaultContext context = new DefaultContext();
         context.put("timeout", 100);
         context.put("useCache", true);
         context.put("chunkPeriod", "P0D");
-        query.setContext(context);
+        DataSourceMetadataQuery query = new DataSourceMetadataQuery()
+                .setDataSource("sample_datasource")
+                .setContext(context);
 
         String json = writer.withDefaultPrettyPrinter().writeValueAsString(query);
         String expected =
