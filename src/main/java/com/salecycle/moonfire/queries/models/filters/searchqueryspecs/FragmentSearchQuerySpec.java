@@ -1,4 +1,4 @@
-package com.salecycle.moonfire.queries.models.queryspecs;
+package com.salecycle.moonfire.queries.models.filters.searchqueryspecs;
 
 public class FragmentSearchQuerySpec extends SearchQuerySpec {
     private boolean caseSentitive;

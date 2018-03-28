@@ -1,6 +1,6 @@
 package com.salecycle.moonfire.queries.models.filters;
 
-import com.salecycle.moonfire.queries.models.queryspecs.SearchQuerySpec;
+import com.salecycle.moonfire.queries.models.filters.searchqueryspecs.SearchQuerySpec;
 
 public class SearchFilter extends Filter {
     private String dimension;

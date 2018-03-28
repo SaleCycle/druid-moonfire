@@ -1,6 +1,6 @@
-package com.salecycle.moonfire.queries.models.queryspecs;
+package com.salecycle.moonfire.queries.models.filters.searchqueryspecs;
 
-public class SearchQuerySpec {
+public abstract class SearchQuerySpec {
     private String type;
     private String value;
 
