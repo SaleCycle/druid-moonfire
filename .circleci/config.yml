@@ -1,0 +1,146 @@
+# Java Maven CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-java/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/openjdk:8-jdk
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/postgres:9.4
+
+    working_directory: ~/repo
+
+    environment:
+      # Customize the JVM maximum heap limit
+      MAVEN_OPTS: -Xmx3200m
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "pom.xml" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: mvn dependency:go-offline
+
+      # run tests!
+      - run: mvn integration-test
+      - run:
+          command: |
+            sudo mkdir -p test-reports/junit/
+            find . -type f -regex ".*\/target\/surefire-reports\/.*\.xml" -exec sudo cp {} test-reports/junit/ \;
+            find . -type f -regex ".*\/target\/failsafe-reports\/.*\.xml" -exec sudo cp {} test-reports/junit/ \;
+
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: v1-dependencies-{{ checksum "pom.xml" }}
+
+      - store_artifacts:
+          path: test-reports/junit/
+          destination: test-results
+
+      - store_test_results:
+          path: test-reports/junit/
+
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+
+  publish:
+    docker:
+      - image: circleci/openjdk:8-jdk
+
+    working_directory: ~/repo
+
+    environment:
+      # Customize the JVM maximum heap limit
+      MAVEN_OPTS: -Xmx3200m
+
+    steps:
+      - attach_workspace:
+          at: .
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "pom.xml" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - deploy:
+          command: |
+            mvn -s .circleci/settings.xml -DskipTests deploy
+
+  release:
+    docker:
+      - image: circleci/openjdk:8-jdk
+
+    working_directory: ~/repo
+
+    environment:
+      # Customize the JVM maximum heap limit
+      MAVEN_OPTS: -Xmx3200m
+
+    steps:
+      - add_ssh_keys
+
+      # use checkout rather than attached workspace to ensure that the known_hosts file gets set up correctly
+      - checkout
+
+      # checkouts for release tags leave us with a detached head, releases can't work from a detached head
+      - run: git checkout master
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "pom.xml" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: mvn integration-test
+
+      - run:
+          name: configure git
+          command: |
+            git config user.email "developers@salecycle.com"
+            git config user.name "CircleCI"
+
+      - deploy:
+          command: |
+            mvn -s .circleci/settings.xml -DskipTests -B release:prepare
+
+workflows:
+  version: 2
+  build_release:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /.*/
+      - publish:
+          requires:
+            - build
+          filters:
+            tags:
+              ignore: /.*/
+            branches:
+              only: master
+      - release:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /release-.*/
+            branches:
+              ignore: /.*/

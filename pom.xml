@@ -8,10 +8,84 @@
     <artifactId>moonfire</artifactId>
     <version>0.1.0-SNAPSHOT</version>
 
+    <distributionManagement>
+        <site>
+            <id>maven.salecycle.com</id>
+            <url>s3://maven.salecycle.com/site</url>
+        </site>
+        <repository>
+            <id>maven.salecycle.com</id>
+            <url>s3://maven.salecycle.com/release</url>
+        </repository>
+        <snapshotRepository>
+            <id>maven.salecycle.com</id>
+            <url>s3://maven.salecycle.com/snapshot</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <repositories>
+        <repository>
+            <id>maven.salecycle.com</id>
+            <url>s3://maven.salecycle.com/release</url>
+        </repository>
+    </repositories>
+    <scm>
+        <developerConnection>scm:git:git@github.com:SaleCycle/druid-moonfire.git</developerConnection>
+        <tag>v0.3.3</tag>
+    </scm>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+                <version>3.5.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <relocations>
+                                <relocation>
+                                    <pattern>com.fasterxml.jackson.core</pattern>
+                                    <shadedPattern>com.salecycle.shaded.com.fasterxml.jackson.core</shadedPattern>
+                                </relocation>
+                            </relocations>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <extensions>
+            <extension>
+                <groupId>org.kuali.maven.wagons</groupId>
+                <artifactId>maven-s3-wagon</artifactId>
+                <version>1.2.1</version>
+            </extension>
+        </extensions>
+    </build>
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <jackson.version>2.9.4</jackson.version>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
