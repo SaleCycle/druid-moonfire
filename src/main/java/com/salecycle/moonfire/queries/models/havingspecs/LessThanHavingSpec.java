@@ -3,18 +3,18 @@ package com.salecycle.moonfire.queries.models.havingspecs;
 import com.salecycle.moonfire.queries.models.aggregations.Aggregation;
 
 public class LessThanHavingSpec extends HavingSpec {
-    private Aggregation aggregation;
+    private String aggregation;
     private Number value;
 
     public LessThanHavingSpec() {
         super("lessThan");
     }
 
-    public Aggregation getAggregation() {
+    public String getAggregation() {
         return aggregation;
     }
 
-    public LessThanHavingSpec setAggregation(Aggregation aggregation) {
+    public LessThanHavingSpec setAggregation(String aggregation) {
         this.aggregation = aggregation;
         return this;
     }

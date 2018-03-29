@@ -3,18 +3,18 @@ package com.salecycle.moonfire.queries.models.havingspecs;
 import com.salecycle.moonfire.queries.models.aggregations.Aggregation;
 
 public class EqualToHavingSpec extends HavingSpec {
-    private Aggregation aggregation;
+    private String aggregation;
     private Number value;
 
     public EqualToHavingSpec() {
         super("equalTo");
     }
 
-    public Aggregation getAggregation() {
+    public String getAggregation() {
         return aggregation;
     }
 
-    public EqualToHavingSpec setAggregation(Aggregation aggregation) {
+    public EqualToHavingSpec setAggregation(String aggregation) {
         this.aggregation = aggregation;
         return this;
     }

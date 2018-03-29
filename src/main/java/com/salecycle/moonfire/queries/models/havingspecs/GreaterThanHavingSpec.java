@@ -5,18 +5,18 @@ import com.salecycle.moonfire.queries.models.aggregations.Aggregation;
 import java.math.BigDecimal;
 
 public class GreaterThanHavingSpec extends HavingSpec {
-    private Aggregation aggregation;
+    private String aggregation;
     private Number value;
 
     public GreaterThanHavingSpec() {
         super("greaterThan");
     }
 
-    public Aggregation getAggregation() {
+    public String getAggregation() {
         return aggregation;
     }
 
-    public GreaterThanHavingSpec setAggregation(Aggregation aggregation) {
+    public GreaterThanHavingSpec setAggregation(String aggregation) {
         this.aggregation = aggregation;
         return this;
     }
