@@ -18,4 +18,9 @@ public class OrFilter extends Filter {
         this.fields = fields;
         return this;
     }
+
+    public OrFilter addField(Filter field) {
+        this.fields.add(field);
+        return this;
+    }
 }

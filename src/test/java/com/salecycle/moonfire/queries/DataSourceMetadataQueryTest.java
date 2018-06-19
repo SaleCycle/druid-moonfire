@@ -1,5 +1,6 @@
 package com.salecycle.moonfire.queries;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -12,7 +13,7 @@ public class DataSourceMetadataQueryTest {
 
     @Test
     public void serialisation() throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
+        ObjectMapper mapper = new ObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL);
         ObjectWriter writer = mapper.writerFor(DataSourceMetadataQuery.class);
 
         DefaultContext context = new DefaultContext();

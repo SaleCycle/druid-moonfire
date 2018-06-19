@@ -1,5 +1,6 @@
 package com.salecycle.moonfire.queries;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -15,7 +16,7 @@ public class TimeBoundaryQueryTest {
 
     @Test
     public void serialisation() throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
+        ObjectMapper mapper = new ObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL);
         ObjectWriter writer = mapper.writerFor(TimeBoundaryQuery.class);
 
         DefaultContext context = new DefaultContext();
@@ -51,16 +52,13 @@ public class TimeBoundaryQueryTest {
                 "  \"bound\" : \"maxTime\",\n" +
                 "  \"filter\" : {\n" +
                 "    \"type\" : \"and\",\n" +
-                "    \"extractionFn\" : null,\n" +
                 "    \"fields\" : [ {\n" +
                 "      \"type\" : \"like\",\n" +
-                "      \"extractionFn\" : null,\n" +
                 "      \"dimension\" : \"myLikeDimension\",\n" +
                 "      \"pattern\" : \"pattern\",\n" +
                 "      \"escape\" : \"\\\\\"\n" +
                 "    }, {\n" +
                 "      \"type\" : \"not\",\n" +
-                "      \"extractionFn\" : null,\n" +
                 "      \"field\" : {\n" +
                 "        \"type\" : \"selector\",\n" +
                 "        \"extractionFn\" : {\n" +
@@ -73,7 +71,6 @@ public class TimeBoundaryQueryTest {
                 "      }\n" +
                 "    }, {\n" +
                 "      \"type\" : \"regex\",\n" +
-                "      \"extractionFn\" : null,\n" +
                 "      \"dimension\" : \"myRegexDimension\",\n" +
                 "      \"pattern\" : \"$[i]^\"\n" +
                 "    } ]\n" +
