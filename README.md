@@ -31,7 +31,7 @@ example output:
 ```
 
 ### [GroupByQuery](http://druid.io/docs/0.12.1/querying/groupbyquery.html)
-example:
+example input:
 ```Java
 List<String> intervals = Collections.singletonList("2012-01-01T00:00:00.000/2012-01-03T00:00:00.000");
 Granularity granularity = Granularity.day;
@@ -147,7 +147,7 @@ example output:
 ```
 
 ### [SearchQuery](http://druid.io/docs/0.12.1/querying/searchquery.html)
-example:
+example input:
 ```Java
 List<String> intervals = Collections.singletonList("2012-01-01T00:00:00.000/2012-01-03T00:00:00.000");
 Granularity granularity = Granularity.day;
