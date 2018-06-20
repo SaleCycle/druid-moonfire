@@ -5,6 +5,18 @@
     <groupId>com.salecycle</groupId>
     <artifactId>moonfire</artifactId>
     <version>0.2.2-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>Moonfire</name>
+    <description>A java library for crafting Druid queries</description>
+    <url>https://github.com/SaleCycle/druid-moonfire</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://github.com/SaleCycle/druid-moonfire/blob/master/LICENSE</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <distributionManagement>
         <site>

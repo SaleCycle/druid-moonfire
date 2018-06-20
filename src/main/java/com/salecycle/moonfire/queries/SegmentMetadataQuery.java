@@ -14,7 +14,7 @@ public class SegmentMetadataQuery {
     private ToInclude toInclude;
     private boolean merge;
     private List<AnalysisType> analysisTypes = new ArrayList<AnalysisType>();
-    private boolean lenietAggregatorMerge;
+    private boolean lenientAggregatorMerge;
     private Context context;
 
     public SegmentMetadataQuery(String dataSource) {
@@ -70,12 +70,12 @@ public class SegmentMetadataQuery {
         return this;
     }
 
-    public boolean isLenietAggregatorMerge() {
-        return lenietAggregatorMerge;
+    public boolean isLenientAggregatorMerge() {
+        return lenientAggregatorMerge;
     }
 
-    public SegmentMetadataQuery setLenietAggregatorMerge(boolean lenietAggregatorMerge) {
-        this.lenietAggregatorMerge = lenietAggregatorMerge;
+    public SegmentMetadataQuery setLenientAggregatorMerge(boolean lenientAggregatorMerge) {
+        this.lenientAggregatorMerge = lenientAggregatorMerge;
         return this;
     }
 
