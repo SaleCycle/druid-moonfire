@@ -1,10 +1,9 @@
 <settings>
     <servers>
         <server>
-            <id>maven.salecycle.com</id>
-            <username>\${env.AWS_ACCESS_KEY_ID}</username>
-            <password>\${env.AWS_SECRET_ACCESS_KEY}</password>
-            <filePermissions>Private</filePermissions>
+            <id>ossrh</id>
+            <username>\${env.SONATYPE_ID}</username>
+            <password>\${env.SONATYPE_PASSWORD}</password>
         </server>
     </servers>
 </settings>
