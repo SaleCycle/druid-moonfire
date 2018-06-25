@@ -1,7 +1,5 @@
 package com.salecycle.moonfire.queries.models.havingspecs;
 
-import com.salecycle.moonfire.queries.models.aggregations.Aggregation;
-
 public class EqualToHavingSpec extends HavingSpec {
     private String aggregation;
     private Number value;

@@ -1,9 +1,5 @@
 package com.salecycle.moonfire.queries.models.havingspecs;
 
-import com.salecycle.moonfire.queries.models.aggregations.Aggregation;
-
-import java.math.BigDecimal;
-
 public class GreaterThanHavingSpec extends HavingSpec {
     private String aggregation;
     private Number value;

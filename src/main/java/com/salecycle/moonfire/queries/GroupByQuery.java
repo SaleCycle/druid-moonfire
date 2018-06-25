@@ -9,7 +9,6 @@ import com.salecycle.moonfire.queries.models.havingspecs.HavingSpec;
 import com.salecycle.moonfire.queries.models.limits.LimitSpec;
 import com.salecycle.moonfire.queries.models.postaggregations.PostAggregation;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class GroupByQuery {

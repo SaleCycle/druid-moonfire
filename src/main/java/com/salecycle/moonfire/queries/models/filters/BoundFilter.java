@@ -1,7 +1,5 @@
 package com.salecycle.moonfire.queries.models.filters;
 
-import com.salecycle.moonfire.queries.models.extractionfunctions.ExtractionFunction;
-
 public class BoundFilter extends Filter {
     private String dimension;
     private String lower;
