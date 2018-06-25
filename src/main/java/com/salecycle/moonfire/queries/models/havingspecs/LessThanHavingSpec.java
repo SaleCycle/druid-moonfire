@@ -1,7 +1,5 @@
 package com.salecycle.moonfire.queries.models.havingspecs;
 
-import com.salecycle.moonfire.queries.models.aggregations.Aggregation;
-
 public class LessThanHavingSpec extends HavingSpec {
     private String aggregation;
     private Number value;

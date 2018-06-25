@@ -1,10 +1,9 @@
 package com.salecycle.moonfire.queries;
 
+import com.salecycle.moonfire.queries.models.Ordering;
 import com.salecycle.moonfire.queries.models.contexts.Context;
-import com.salecycle.moonfire.queries.models.dimensionspecs.DimensionSpec;
 import com.salecycle.moonfire.queries.models.filters.Filter;
 import com.salecycle.moonfire.queries.models.granularities.Granularity;
-import com.salecycle.moonfire.queries.models.Ordering;
 import com.salecycle.moonfire.queries.models.searchqueryspecs.SearchQuerySpec;
 
 import java.util.ArrayList;
