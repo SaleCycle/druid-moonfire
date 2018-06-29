@@ -5,6 +5,9 @@
             <username>${env.SONATYPE_ID}</username>
             <password>${env.SONATYPE_PASSWORD}</password>
             <passphrase>${env.GPG_PASSPHRASE}</passphrase>
+            <gpg.defaultKeyring>false</gpg.defaultKeyring>
+            <gpg.publicKeyring>${env.GPG_DIR}/pubring.kbx</gpg.publicKeyring>
+            <gpg.secretKeyring>${env.GPG_DIR}/secring.kbx</gpg.secretKeyring>
         </server>
     </servers>
     <profiles>
@@ -15,6 +18,10 @@
             <properties>
                 <gpg.keyname>ossrh</gpg.keyname>
                 <gpg.executable>${env.GPG_EXECUTABLE}</gpg.executable>
+                <gpg.passphrase>${env.GPG_PASSPHRASE}</gpg.passphrase>
+                <gpg.defaultKeyring>false</gpg.defaultKeyring>
+                <gpg.publicKeyring>${env.GPG_DIR}/pubring.kbx</gpg.publicKeyring>
+                <gpg.secretKeyring>${env.GPG_DIR}/secring.kbx</gpg.secretKeyring>
             </properties>
         </profile>
     </profiles>
