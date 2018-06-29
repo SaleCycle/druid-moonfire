@@ -78,6 +78,12 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
+      - run:
+          command: |
+            export GPG_TTY=$(tty)
+            echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --batch --import
+            echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
+
       - deploy:
           command: |
             mvn -s .circleci/settings.xml -DskipTests deploy
