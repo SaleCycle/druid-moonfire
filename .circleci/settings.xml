@@ -5,10 +5,6 @@
             <username>${env.SONATYPE_ID}</username>
             <password>${env.SONATYPE_PASSWORD}</password>
         </server>
-        <server>
-            <id>gpg.passphrase</id>
-            <passphrase>${env.GPG_PASSPHRASE}</passphrase>
-        </server>
     </servers>
     <profiles>
         <profile>
@@ -19,6 +15,7 @@
                 <gpg.keyname>${env.GPG_KEYNAME}</gpg.keyname>
                 <gpg.executable>${env.GPG_EXECUTABLE}</gpg.executable>
                 <gpg.homedir>${env.GPG_DIR}</gpg.homedir>
+                <gpg.passphrase>${env.GPG_PASSPHRASE}</gpg.passphrase>
             </properties>
         </profile>
     </profiles>
