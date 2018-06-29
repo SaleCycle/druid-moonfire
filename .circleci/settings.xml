@@ -4,14 +4,11 @@
             <id>ossrh</id>
             <username>${env.SONATYPE_ID}</username>
             <password>${env.SONATYPE_PASSWORD}</password>
-            <passphrase>${env.GPG_PASSPHRASE}</passphrase>
-            <gpg.defaultKeyring>false</gpg.defaultKeyring>
-            <gpg.publicKeyring>${env.GPG_DIR}/pubring.kbx</gpg.publicKeyring>
-            <gpg.secretKeyring>${env.GPG_DIR}/secring.kbx</gpg.secretKeyring>
         </server>
     </servers>
     <profiles>
         <profile>
+            <id>ossrh</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
