@@ -121,6 +121,9 @@ jobs:
 
       - deploy:
           command: |
+            export GPG_TTY=$(tty)
+            echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --batch --import
+            echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
             mvn -s .circleci/settings.xml -DskipTests -B release:prepare
 
 workflows:
