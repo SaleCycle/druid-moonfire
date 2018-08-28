@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.salecycle.moonfire.queries.models.AnalysisType;
+import com.salecycle.moonfire.queries.models.datasources.TableDataSource;
 import com.salecycle.moonfire.queries.models.toincludes.NoneToInclude;
 import org.junit.Test;
 
@@ -23,7 +24,7 @@ public class SegmentMetadataQueryTest {
 
         List<String> intervals = Collections.singletonList("2012-01-01T00:00:00.000/2012-01-03T00:00:00.000");
         
-        SegmentMetadataQuery query = new SegmentMetadataQuery("sample_datasource")
+        SegmentMetadataQuery query = new SegmentMetadataQuery(new TableDataSource("sample_datasource"))
                 .setIntervals(intervals)
                 .setToInclude(new NoneToInclude())
                 .setAnalysisTypes(new ArrayList<AnalysisType>() {{
@@ -36,7 +37,10 @@ public class SegmentMetadataQueryTest {
         String expected =
                 "{\n" +
                 "  \"queryType\" : \"segmentMetadata\",\n" +
-                "  \"dataSource\" : \"sample_datasource\",\n" +
+                "  \"dataSource\" : {\n" +
+                "    \"type\" : \"table\",\n" +
+                "    \"name\" : \"sample_datasource\"\n" +
+                "  },\n" +
                 "  \"intervals\" : [ \"2012-01-01T00:00:00.000/2012-01-03T00:00:00.000\" ],\n" +
                 "  \"toInclude\" : {\n" +
                 "    \"type\" : \"none\"\n" +

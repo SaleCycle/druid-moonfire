@@ -2,6 +2,7 @@ package com.salecycle.moonfire.queries;
 
 import com.salecycle.moonfire.queries.models.aggregations.Aggregation;
 import com.salecycle.moonfire.queries.models.contexts.Context;
+import com.salecycle.moonfire.queries.models.datasources.DataSource;
 import com.salecycle.moonfire.queries.models.filters.Filter;
 import com.salecycle.moonfire.queries.models.granularities.Granularity;
 import com.salecycle.moonfire.queries.models.postaggregations.PostAggregation;
@@ -10,7 +11,7 @@ import java.util.List;
 
 public class TimeSeriesQuery {
     private final String queryType = "timeseries";
-    private String dataSource;
+    private DataSource dataSource;
     private Granularity granularity;
     private boolean descending;
     private List<String> intervals;
@@ -19,7 +20,7 @@ public class TimeSeriesQuery {
     private List<PostAggregation> postAggregations;
     private Context context;
 
-    public TimeSeriesQuery(String dataSource, List<String> intervals, Granularity granularity) {
+    public TimeSeriesQuery(DataSource dataSource, List<String> intervals, Granularity granularity) {
         this.dataSource = dataSource;
         this.intervals = intervals;
         this.granularity = granularity;
@@ -29,11 +30,11 @@ public class TimeSeriesQuery {
         return queryType;
     }
 
-    public String getDataSource() {
+    public DataSource getDataSource() {
         return dataSource;
     }
 
-    public TimeSeriesQuery setDataSource(String dataSource) {
+    public TimeSeriesQuery setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
         return this;
     }

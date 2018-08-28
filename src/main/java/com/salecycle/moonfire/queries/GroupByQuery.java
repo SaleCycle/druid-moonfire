@@ -2,6 +2,7 @@ package com.salecycle.moonfire.queries;
 
 import com.salecycle.moonfire.queries.models.aggregations.Aggregation;
 import com.salecycle.moonfire.queries.models.contexts.Context;
+import com.salecycle.moonfire.queries.models.datasources.DataSource;
 import com.salecycle.moonfire.queries.models.dimensionspecs.DimensionSpec;
 import com.salecycle.moonfire.queries.models.filters.Filter;
 import com.salecycle.moonfire.queries.models.granularities.Granularity;
@@ -13,7 +14,7 @@ import java.util.List;
 
 public class GroupByQuery {
     private final String queryType = "groupBy";
-    private String dataSource;
+    private DataSource dataSource;
     private List<DimensionSpec> dimensions;
     private LimitSpec limitSpec;
     private HavingSpec having;
@@ -24,8 +25,13 @@ public class GroupByQuery {
     private List<String> intervals;
     private Context context;
 
-    public GroupByQuery(String dataSource, List<String> intervals, Granularity granularity, List<DimensionSpec> dimensions) {
+
+    public GroupByQuery(DataSource dataSource, List<String> intervals, Granularity granularity, List<DimensionSpec> dimensions) {
+        this(intervals, granularity, dimensions);
         this.dataSource = dataSource;
+    }
+
+    private GroupByQuery(List<String> intervals, Granularity granularity, List<DimensionSpec> dimensions) {
         this.intervals = intervals;
         this.dimensions = dimensions;
         this.granularity = granularity;
@@ -35,11 +41,11 @@ public class GroupByQuery {
         return queryType;
     }
 
-    public String getDataSource() {
+    public Object getDataSource() {
         return dataSource;
     }
 
-    public GroupByQuery setDataSource(String dataSource) {
+    public GroupByQuery setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
         return this;
     }

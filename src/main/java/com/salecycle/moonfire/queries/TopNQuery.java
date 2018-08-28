@@ -2,6 +2,7 @@ package com.salecycle.moonfire.queries;
 
 import com.salecycle.moonfire.queries.models.aggregations.Aggregation;
 import com.salecycle.moonfire.queries.models.contexts.Context;
+import com.salecycle.moonfire.queries.models.datasources.DataSource;
 import com.salecycle.moonfire.queries.models.dimensionspecs.DimensionSpec;
 import com.salecycle.moonfire.queries.models.filters.Filter;
 import com.salecycle.moonfire.queries.models.granularities.Granularity;
@@ -12,7 +13,7 @@ import java.util.List;
 
 public class TopNQuery {
     private final String queryType = "topN";
-    private String dataSource;
+    private DataSource dataSource;
     private List<String> intervals;
     private Granularity granularity;
     private Filter filter;
@@ -23,7 +24,7 @@ public class TopNQuery {
     private TopNMetricSpec metric;
     private Context context;
 
-    public TopNQuery(String dataSource, List<String> intervals, Granularity granularity, DimensionSpec dimension, int threshold, TopNMetricSpec metric) {
+    public TopNQuery(DataSource dataSource, List<String> intervals, Granularity granularity, DimensionSpec dimension, int threshold, TopNMetricSpec metric) {
         this.dataSource = dataSource;
         this.intervals = intervals;
         this.granularity = granularity;
@@ -36,11 +37,11 @@ public class TopNQuery {
         return queryType;
     }
 
-    public String getDataSource() {
+    public DataSource getDataSource() {
         return dataSource;
     }
 
-    public TopNQuery setDataSource(String dataSource) {
+    public TopNQuery setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
         return this;
     }

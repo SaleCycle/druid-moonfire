@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.salecycle.moonfire.queries.models.contexts.DefaultContext;
+import com.salecycle.moonfire.queries.models.datasources.TableDataSource;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -20,14 +21,17 @@ public class DataSourceMetadataQueryTest {
         context.put("timeout", 100);
         context.put("useCache", true);
         context.put("chunkPeriod", "P0D");
-        DataSourceMetadataQuery query = new DataSourceMetadataQuery("sample_datasource")
+        DataSourceMetadataQuery query = new DataSourceMetadataQuery(new TableDataSource("sample_datasource"))
                 .setContext(context);
 
         String json = writer.withDefaultPrettyPrinter().writeValueAsString(query);
         String expected =
                 "{\n" +
                 "  \"queryType\" : \"dataSourceMetadata\",\n" +
-                "  \"dataSource\" : \"sample_datasource\",\n" +
+                "  \"dataSource\" : {\n" +
+                "    \"type\" : \"table\",\n" +
+                "    \"name\" : \"sample_datasource\"\n" +
+                "  },\n" +
                 "  \"context\" : {\n" +
                 "    \"useCache\" : true,\n" +
                 "    \"chunkPeriod\" : \"P0D\",\n" +
