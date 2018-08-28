@@ -2,16 +2,17 @@ package com.salecycle.moonfire.queries;
 
 import com.salecycle.moonfire.queries.models.Bound;
 import com.salecycle.moonfire.queries.models.contexts.Context;
+import com.salecycle.moonfire.queries.models.datasources.DataSource;
 import com.salecycle.moonfire.queries.models.filters.Filter;
 
 public class TimeBoundaryQuery {
     private final String queryType = "timeBoundary";
-    private String dataSource;
+    private DataSource dataSource;
     private Bound bound;
     private Filter filter;
     private Context context;
 
-    public TimeBoundaryQuery(String dataSource) {
+    public TimeBoundaryQuery(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
@@ -19,11 +20,11 @@ public class TimeBoundaryQuery {
         return queryType;
     }
 
-    public String getDataSource() {
+    public DataSource getDataSource() {
         return dataSource;
     }
 
-    public TimeBoundaryQuery setDataSource(String dataSource) {
+    public TimeBoundaryQuery setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
         return this;
     }

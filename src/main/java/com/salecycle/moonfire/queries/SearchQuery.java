@@ -2,6 +2,7 @@ package com.salecycle.moonfire.queries;
 
 import com.salecycle.moonfire.queries.models.Ordering;
 import com.salecycle.moonfire.queries.models.contexts.Context;
+import com.salecycle.moonfire.queries.models.datasources.DataSource;
 import com.salecycle.moonfire.queries.models.filters.Filter;
 import com.salecycle.moonfire.queries.models.granularities.Granularity;
 import com.salecycle.moonfire.queries.models.searchqueryspecs.SearchQuerySpec;
@@ -11,7 +12,7 @@ import java.util.List;
 
 public class SearchQuery {
     private final String queryType = "search";
-    private String dataSource;
+    private DataSource dataSource;
     private Granularity granularity;
     private Filter filter;
     private int limit = 1000;
@@ -21,22 +22,21 @@ public class SearchQuery {
     private Ordering sort;
     private Context context;
 
-    public SearchQuery(String dataSource, List<String> intervals, Granularity granularity, SearchQuerySpec query) {
+    public SearchQuery(DataSource dataSource, List<String> intervals, Granularity granularity, SearchQuerySpec query) {
         this.dataSource = dataSource;
         this.intervals = intervals;
         this.granularity = granularity;
         this.query = query;
     }
-
     public String getQueryType() {
         return queryType;
     }
 
-    public String getDataSource() {
+    public Object getDataSource() {
         return dataSource;
     }
 
-    public SearchQuery setDataSource(String dataSource) {
+    public SearchQuery setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
         return this;
     }

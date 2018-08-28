@@ -14,14 +14,17 @@ DefaultContext context = new DefaultContext();
 context.put("timeout", 100);
 context.put("useCache", true);
 context.put("chunkPeriod", "P0D");
-DataSourceMetadataQuery query = new DataSourceMetadataQuery("sample_datasource")
+DataSourceMetadataQuery query = new DataSourceMetadataQuery(new TableDataSource("sample_datasource"))
        .setContext(context);
 ```
 example output:
 ```Json
 {
   "queryType" : "dataSourceMetadata",
-  "dataSource" : "sample_datasource",
+  "dataSource" : {
+    "type" : "table",
+    "name" : "sample_datasource"
+  },
   "context" : {
     "useCache" : true,
     "chunkPeriod" : "P0D",
@@ -62,7 +65,7 @@ Filter filter = new AndFilter()
         );
 HavingSpec havingSpec = new GreaterThanHavingSpec().setAggregation("total_usage").setValue(100);
 
-GroupByQuery query = new GroupByQuery("sample_datasource", intervals, granularity, dimensionSpecs)
+GroupByQuery query = new GroupByQuery(new TableDataSource("sample_datasource"), intervals, granularity, dimensionSpecs)
         .setLimitSpec(limitSpec)
         .setFilter(filter)
         .setAggregations(aggregations)
@@ -73,7 +76,10 @@ example output:
 ```Json
 {
   "queryType" : "groupBy",
-  "dataSource" : "sample_datasource",
+  "dataSource" : {
+    "type" : "table",
+    "name" : "sample_datasource"
+  },
   "dimensions" : [ {
     "type" : "default",
     "dimension" : "country"
@@ -153,7 +159,7 @@ List<String> intervals = Collections.singletonList("2012-01-01T00:00:00.000/2012
 Granularity granularity = Granularity.day;
 SearchQuerySpec searchQuerySpec = new ContainsSearchQuerySpec().setCase_sensitive(true).setValue("sample_value");
 
-SearchQuery query = new SearchQuery("sample_datasource", intervals, granularity, searchQuerySpec)
+SearchQuery query = new SearchQuery(new TableDataSource("sample_datasource"), intervals, granularity, searchQuerySpec)
         .setLimit(5)
         .setSearchDimensions(Collections.singletonList("sample_dimension"))
         .setSort(Ordering.alphanumeric);
@@ -162,7 +168,10 @@ example output:
 ```Json
 {
   "queryType" : "search",
-  "dataSource" : "sample_datasource",
+  "dataSource" : {
+    "type" : "table",
+    "name" : "sample_datasource"
+  },
   "granularity" : "day",
   "limit" : 5,
   "intervals" : [ "2012-01-01T00:00:00.000/2012-01-03T00:00:00.000" ],
@@ -181,7 +190,7 @@ example input:
 ```Java
 List<String> intervals = Collections.singletonList("2012-01-01T00:00:00.000/2012-01-03T00:00:00.000");
     
-SegmentMetadataQuery query = new SegmentMetadataQuery("sample_datasource")
+SegmentMetadataQuery query = new SegmentMetadataQuery(new TableDataSource("sample_datasource"))
         .setIntervals(intervals)
         .setToInclude(new NoneToInclude())
         .setAnalysisTypes(new ArrayList<AnalysisType>() {{
@@ -194,7 +203,10 @@ example output:
 ```Json
 {
   "queryType" : "segmentMetadata",
-  "dataSource" : "sample_datasource",
+  "dataSource" : {
+    "type" : "table",
+    "name" : "sample_datasource"
+  },
   "intervals" : [ "2012-01-01T00:00:00.000/2012-01-03T00:00:00.000" ],
   "toInclude" : {
     "type" : "none"
@@ -228,7 +240,7 @@ SelectorFilter selectorFilter = new SelectorFilter()
 NotFilter notFilter = new NotFilter()
         .setField(selectorFilter);
 
-TimeBoundaryQuery query = new TimeBoundaryQuery("sample_datasource")
+TimeBoundaryQuery query = new TimeBoundaryQuery(new TableDataSource("sample_datasource"))
         .setBound(Bound.maxTime)
         .setFilter(new AndFilter().addField(likeFilter).addField(notFilter).addField(regexFilter))
         .setContext(context);
@@ -237,7 +249,10 @@ example output:
 ```Json
 {
   "queryType" : "timeBoundary",
-  "dataSource" : "sample_datasource",
+  "dataSource" : {
+    "type" : "table",
+    "name" : "sample_datasource"
+  },
   "bound" : "maxTime",
   "filter" : {
     "type" : "and",
@@ -295,7 +310,7 @@ Filter filter = new AndFilter()
                 .addField(new SelectorFilter().setDimension("sample_dimension3").setValue("sample_value3"))
         );
 
-TimeSeriesQuery query = new TimeSeriesQuery("sample_datasource", intervals, granularity)
+TimeSeriesQuery query = new TimeSeriesQuery(new TableDataSource("sample_datasource"), intervals, granularity)
         .setDescending(true)
         .setFilter(filter)
         .setAggregations(aggregations)
@@ -305,7 +320,10 @@ example output:
 ```Json
 {
   "queryType" : "timeseries",
-  "dataSource" : "sample_datasource",
+  "dataSource" : {
+    "type" : "table",
+    "name" : "sample_datasource"
+  },
   "granularity" : "day",
   "descending" : true,
   "intervals" : [ "2012-01-01T00:00:00.000/2012-01-03T00:00:00.000" ],
@@ -377,7 +395,7 @@ Filter filter = new AndFilter()
         .addField(new SelectorFilter().setDimension("dim1").setValue("some_value"))
         .addField(new SelectorFilter().setDimension("dim2").setValue("some_other_val"));
 
-TopNQuery query = new TopNQuery("sample_data", intervals, granularity, dimension, threshold, topNMetricSpec)
+TopNQuery query = new TopNQuery(new TableDataSource("sample_data"), intervals, granularity, dimension, threshold, topNMetricSpec)
         .setAggregations(aggregations)
         .setPostAggregations(postAggregations)
         .setFilter(filter);
@@ -386,7 +404,10 @@ example output:
 ```Json
 {
   "queryType" : "topN",
-  "dataSource" : "sample_data",
+  "dataSource" : {
+    "type" : "table",
+    "name" : "sample_data"
+  },
   "intervals" : [ "2013-08-31T00:00:00.000/2013-09-03T00:00:00.000" ],
   "granularity" : "all",
   "filter" : {

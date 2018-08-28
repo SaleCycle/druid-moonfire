@@ -1,13 +1,14 @@
 package com.salecycle.moonfire.queries;
 
 import com.salecycle.moonfire.queries.models.contexts.Context;
+import com.salecycle.moonfire.queries.models.datasources.DataSource;
 
 public class DataSourceMetadataQuery {
     private final String queryType = "dataSourceMetadata";
-    private String dataSource;
+    private DataSource dataSource;
     private Context context;
 
-    public DataSourceMetadataQuery(String dataSource) {
+    public DataSourceMetadataQuery(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
@@ -15,11 +16,11 @@ public class DataSourceMetadataQuery {
         return queryType;
     }
 
-    public String getDataSource() {
+    public DataSource getDataSource() {
         return dataSource;
     }
 
-    public DataSourceMetadataQuery setDataSource(String dataSource) {
+    public DataSourceMetadataQuery setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
         return this;
     }

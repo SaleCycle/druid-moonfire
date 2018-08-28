@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.salecycle.moonfire.queries.models.Ordering;
+import com.salecycle.moonfire.queries.models.datasources.TableDataSource;
 import com.salecycle.moonfire.queries.models.granularities.Granularity;
 import com.salecycle.moonfire.queries.models.searchqueryspecs.ContainsSearchQuerySpec;
 import com.salecycle.moonfire.queries.models.searchqueryspecs.SearchQuerySpec;
@@ -26,7 +27,7 @@ public class SearchQueryTest {
         Granularity granularity = Granularity.day;
         SearchQuerySpec searchQuerySpec = new ContainsSearchQuerySpec().setCase_sensitive(true).setValue("sample_value");
 
-        SearchQuery query = new SearchQuery("sample_datasource", intervals, granularity, searchQuerySpec)
+        SearchQuery query = new SearchQuery(new TableDataSource("sample_datasource"), intervals, granularity, searchQuerySpec)
                 .setLimit(5)
                 .setSearchDimensions(Collections.singletonList("sample_dimension"))
                 .setSort(Ordering.alphanumeric);
@@ -35,7 +36,10 @@ public class SearchQueryTest {
         String expected =
                 "{\n" +
                 "  \"queryType\" : \"search\",\n" +
-                "  \"dataSource\" : \"sample_datasource\",\n" +
+                "  \"dataSource\" : {\n" +
+                "    \"type\" : \"table\",\n" +
+                "    \"name\" : \"sample_datasource\"\n" +
+                "  },\n" +
                 "  \"granularity\" : \"day\",\n" +
                 "  \"limit\" : 5,\n" +
                 "  \"intervals\" : [ \"2012-01-01T00:00:00.000/2012-01-03T00:00:00.000\" ],\n" +

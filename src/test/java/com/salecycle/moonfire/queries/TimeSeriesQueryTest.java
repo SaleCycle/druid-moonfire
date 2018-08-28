@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.salecycle.moonfire.queries.models.aggregations.Aggregation;
 import com.salecycle.moonfire.queries.models.aggregations.DoubleSumAggregation;
 import com.salecycle.moonfire.queries.models.aggregations.LongSumAggregation;
+import com.salecycle.moonfire.queries.models.datasources.TableDataSource;
 import com.salecycle.moonfire.queries.models.filters.AndFilter;
 import com.salecycle.moonfire.queries.models.filters.Filter;
 import com.salecycle.moonfire.queries.models.filters.OrFilter;
@@ -50,7 +51,7 @@ public class TimeSeriesQueryTest {
                         .addField(new SelectorFilter().setDimension("sample_dimension3").setValue("sample_value3"))
                 );
 
-        TimeSeriesQuery query = new TimeSeriesQuery("sample_datasource", intervals, granularity)
+        TimeSeriesQuery query = new TimeSeriesQuery(new TableDataSource("sample_datasource"), intervals, granularity)
                 .setDescending(true)
                 .setFilter(filter)
                 .setAggregations(aggregations)
@@ -60,7 +61,10 @@ public class TimeSeriesQueryTest {
         String expected =
                 "{\n" +
                 "  \"queryType\" : \"timeseries\",\n" +
-                "  \"dataSource\" : \"sample_datasource\",\n" +
+                "  \"dataSource\" : {\n" +
+                "    \"type\" : \"table\",\n" +
+                "    \"name\" : \"sample_datasource\"\n" +
+                "  },\n" +
                 "  \"granularity\" : \"day\",\n" +
                 "  \"descending\" : true,\n" +
                 "  \"intervals\" : [ \"2012-01-01T00:00:00.000/2012-01-03T00:00:00.000\" ],\n" +

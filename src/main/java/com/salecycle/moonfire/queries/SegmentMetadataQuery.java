@@ -2,6 +2,7 @@ package com.salecycle.moonfire.queries;
 
 import com.salecycle.moonfire.queries.models.AnalysisType;
 import com.salecycle.moonfire.queries.models.contexts.Context;
+import com.salecycle.moonfire.queries.models.datasources.DataSource;
 import com.salecycle.moonfire.queries.models.toincludes.ToInclude;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.List;
 
 public class SegmentMetadataQuery {
     private final String queryType = "segmentMetadata";
-    private String dataSource;
+    private DataSource dataSource;
     private List<String> intervals = new ArrayList<String>();
     private ToInclude toInclude;
     private boolean merge;
@@ -17,7 +18,7 @@ public class SegmentMetadataQuery {
     private boolean lenientAggregatorMerge;
     private Context context;
 
-    public SegmentMetadataQuery(String dataSource) {
+    public SegmentMetadataQuery(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
@@ -25,11 +26,11 @@ public class SegmentMetadataQuery {
         return queryType;
     }
 
-    public String getDataSource() {
+    public DataSource getDataSource() {
         return dataSource;
     }
 
-    public SegmentMetadataQuery setDataSource(String dataSource) {
+    public SegmentMetadataQuery setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
         return this;
     }

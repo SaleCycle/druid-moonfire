@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.salecycle.moonfire.queries.models.aggregations.Aggregation;
 import com.salecycle.moonfire.queries.models.aggregations.DoubleSumAggregation;
 import com.salecycle.moonfire.queries.models.aggregations.LongSumAggregation;
+import com.salecycle.moonfire.queries.models.datasources.TableDataSource;
 import com.salecycle.moonfire.queries.models.dimensionspecs.DefaultDimension;
 import com.salecycle.moonfire.queries.models.dimensionspecs.DimensionSpec;
 import com.salecycle.moonfire.queries.models.filters.AndFilter;
@@ -53,7 +54,7 @@ public class TopNQueryTest {
                 .addField(new SelectorFilter().setDimension("dim1").setValue("some_value"))
                 .addField(new SelectorFilter().setDimension("dim2").setValue("some_other_val"));
 
-        TopNQuery query = new TopNQuery("sample_data", intervals, granularity, dimension, threshold, topNMetricSpec)
+        TopNQuery query = new TopNQuery(new TableDataSource("sample_datasource"), intervals, granularity, dimension, threshold, topNMetricSpec)
                 .setAggregations(aggregations)
                 .setPostAggregations(postAggregations)
                 .setFilter(filter);
@@ -62,7 +63,10 @@ public class TopNQueryTest {
         String expected =
                 "{\n" +
                 "  \"queryType\" : \"topN\",\n" +
-                "  \"dataSource\" : \"sample_data\",\n" +
+                "  \"dataSource\" : {\n" +
+                "    \"type\" : \"table\",\n" +
+                "    \"name\" : \"sample_datasource\"\n" +
+                "  },\n" +
                 "  \"intervals\" : [ \"2013-08-31T00:00:00.000/2013-09-03T00:00:00.000\" ],\n" +
                 "  \"granularity\" : \"all\",\n" +
                 "  \"filter\" : {\n" +
