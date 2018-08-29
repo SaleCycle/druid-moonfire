@@ -3,14 +3,14 @@ package com.salecycle.moonfire.queries.models.datasources;
 import java.util.List;
 
 public class UnionDataSource extends DataSource {
-    private List<String> names;
+    private List<String> dataSources;
 
-    public UnionDataSource(List<String> names) {
+    public UnionDataSource(List<String> dataSources) {
         super("union");
-        this.names = names;
+        this.dataSources = dataSources;
     }
 
-    public List<String> getNames() {
-        return names;
+    public List<String> getDataSources() {
+        return dataSources;
     }
 }
