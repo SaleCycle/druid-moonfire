@@ -12,6 +12,7 @@ import com.salecycle.moonfire.queries.models.datasources.GroupByQueryDataSource;
 import com.salecycle.moonfire.queries.models.datasources.TableDataSource;
 import com.salecycle.moonfire.queries.models.dimensionspecs.DefaultDimension;
 import com.salecycle.moonfire.queries.models.dimensionspecs.DimensionSpec;
+import com.salecycle.moonfire.queries.models.dimensionspecs.ListFilteredDimensionSpec;
 import com.salecycle.moonfire.queries.models.filters.AndFilter;
 import com.salecycle.moonfire.queries.models.filters.Filter;
 import com.salecycle.moonfire.queries.models.filters.OrFilter;
@@ -166,7 +167,7 @@ public class GroupByQueryTest {
         Granularity granularity = Granularity.day;
         List<DimensionSpec> dimensionSpecs = new ArrayList<DimensionSpec>() {{
             add(new DefaultDimension().setDimension("country"));
-            add(new DefaultDimension().setDimension("device"));
+            add(new ListFilteredDimensionSpec().setDelegate(new DefaultDimension().setDimension("device")).setValues(Collections.singletonList("iPhone")));
         }};
         LimitSpec limitSpec = new DefaultLimitSpec().setLimit(500).setColumns(new ArrayList<OrderByColumnSpec>() {{
             add(new OrderByColumnSpec().setDimension(new DefaultDimension().setDimension("country")));
@@ -208,156 +209,166 @@ public class GroupByQueryTest {
         String json = writer.withDefaultPrettyPrinter().writeValueAsString(query);
         String expected =
                 "{\n" +
-                "  \"queryType\" : \"groupBy\",\n" +
-                "  \"dataSource\" : {\n" +
-                "    \"type\" : \"query\",\n" +
-                "    \"query\" : {\n" +
-                "      \"queryType\" : \"groupBy\",\n" +
-                "      \"dataSource\" : {\n" +
-                "        \"type\" : \"table\",\n" +
-                "        \"name\" : \"sample_datasource\"\n" +
-                "      },\n" +
-                "      \"dimensions\" : [ {\n" +
-                "        \"type\" : \"default\",\n" +
-                "        \"dimension\" : \"country\"\n" +
-                "      }, {\n" +
-                "        \"type\" : \"default\",\n" +
-                "        \"dimension\" : \"device\"\n" +
-                "      } ],\n" +
-                "      \"limitSpec\" : {\n" +
-                "        \"type\" : \"default\",\n" +
-                "        \"limit\" : 500,\n" +
-                "        \"columns\" : [ {\n" +
-                "          \"dimension\" : {\n" +
-                "            \"type\" : \"default\",\n" +
-                "            \"dimension\" : \"country\"\n" +
-                "          }\n" +
-                "        }, {\n" +
-                "          \"dimension\" : {\n" +
-                "            \"type\" : \"default\",\n" +
-                "            \"dimension\" : \"data_transfer\"\n" +
-                "          }\n" +
-                "        } ]\n" +
-                "      },\n" +
-                "      \"having\" : {\n" +
-                "        \"type\" : \"greaterThan\",\n" +
-                "        \"aggregation\" : \"total_usage\",\n" +
-                "        \"value\" : 100\n" +
-                "      },\n" +
-                "      \"granularity\" : \"day\",\n" +
-                "      \"filter\" : {\n" +
-                "        \"type\" : \"and\",\n" +
-                "        \"fields\" : [ {\n" +
-                "          \"type\" : \"selector\",\n" +
-                "          \"dimension\" : \"carrier\",\n" +
-                "          \"value\" : \"AT&T\"\n" +
-                "        }, {\n" +
-                "          \"type\" : \"or\",\n" +
-                "          \"fields\" : [ {\n" +
-                "            \"type\" : \"selector\",\n" +
-                "            \"dimension\" : \"make\",\n" +
-                "            \"value\" : \"Apple\"\n" +
-                "          }, {\n" +
-                "            \"type\" : \"selector\",\n" +
-                "            \"dimension\" : \"make\",\n" +
-                "            \"value\" : \"Samsung\"\n" +
-                "          } ]\n" +
-                "        } ]\n" +
-                "      },\n" +
-                "      \"aggregations\" : [ {\n" +
-                "        \"type\" : \"longSum\",\n" +
-                "        \"name\" : \"user_count\",\n" +
-                "        \"fieldName\" : \"total_usage\"\n" +
-                "      }, {\n" +
-                "        \"type\" : \"doubleSum\",\n" +
-                "        \"name\" : \"data_transfer\",\n" +
-                "        \"fieldName\" : \"data_transfer\"\n" +
-                "      } ],\n" +
-                "      \"postAggregations\" : [ {\n" +
-                "        \"type\" : \"arithmetic\",\n" +
-                "        \"name\" : \"avg_usage\",\n" +
-                "        \"fn\" : \"/\",\n" +
-                "        \"fields\" : [ {\n" +
-                "          \"type\" : \"fieldAccess\",\n" +
-                "          \"fieldName\" : \"data_transfer\"\n" +
-                "        }, {\n" +
-                "          \"type\" : \"fieldAccess\",\n" +
-                "          \"fieldName\" : \"total_usage\"\n" +
-                "        } ]\n" +
-                "      } ],\n" +
-                "      \"intervals\" : [ \"2012-01-01T00:00:00.000/2012-01-03T00:00:00.000\" ]\n" +
-                "    }\n" +
-                "  },\n" +
-                "  \"dimensions\" : [ {\n" +
-                "    \"type\" : \"default\",\n" +
-                "    \"dimension\" : \"country\"\n" +
-                "  }, {\n" +
-                "    \"type\" : \"default\",\n" +
-                "    \"dimension\" : \"device\"\n" +
-                "  } ],\n" +
-                "  \"limitSpec\" : {\n" +
-                "    \"type\" : \"default\",\n" +
-                "    \"limit\" : 500,\n" +
-                "    \"columns\" : [ {\n" +
-                "      \"dimension\" : {\n" +
-                "        \"type\" : \"default\",\n" +
-                "        \"dimension\" : \"country\"\n" +
-                "      }\n" +
-                "    }, {\n" +
-                "      \"dimension\" : {\n" +
-                "        \"type\" : \"default\",\n" +
-                "        \"dimension\" : \"data_transfer\"\n" +
-                "      }\n" +
-                "    } ]\n" +
-                "  },\n" +
-                "  \"having\" : {\n" +
-                "    \"type\" : \"greaterThan\",\n" +
-                "    \"aggregation\" : \"total_usage\",\n" +
-                "    \"value\" : 100\n" +
-                "  },\n" +
-                "  \"granularity\" : \"day\",\n" +
-                "  \"filter\" : {\n" +
-                "    \"type\" : \"and\",\n" +
-                "    \"fields\" : [ {\n" +
-                "      \"type\" : \"selector\",\n" +
-                "      \"dimension\" : \"carrier\",\n" +
-                "      \"value\" : \"AT&T\"\n" +
-                "    }, {\n" +
-                "      \"type\" : \"or\",\n" +
-                "      \"fields\" : [ {\n" +
-                "        \"type\" : \"selector\",\n" +
-                "        \"dimension\" : \"make\",\n" +
-                "        \"value\" : \"Apple\"\n" +
-                "      }, {\n" +
-                "        \"type\" : \"selector\",\n" +
-                "        \"dimension\" : \"make\",\n" +
-                "        \"value\" : \"Samsung\"\n" +
-                "      } ]\n" +
-                "    } ]\n" +
-                "  },\n" +
-                "  \"aggregations\" : [ {\n" +
-                "    \"type\" : \"longSum\",\n" +
-                "    \"name\" : \"user_count\",\n" +
-                "    \"fieldName\" : \"total_usage\"\n" +
-                "  }, {\n" +
-                "    \"type\" : \"doubleSum\",\n" +
-                "    \"name\" : \"data_transfer\",\n" +
-                "    \"fieldName\" : \"data_transfer\"\n" +
-                "  } ],\n" +
-                "  \"postAggregations\" : [ {\n" +
-                "    \"type\" : \"arithmetic\",\n" +
-                "    \"name\" : \"avg_usage\",\n" +
-                "    \"fn\" : \"/\",\n" +
-                "    \"fields\" : [ {\n" +
-                "      \"type\" : \"fieldAccess\",\n" +
-                "      \"fieldName\" : \"data_transfer\"\n" +
-                "    }, {\n" +
-                "      \"type\" : \"fieldAccess\",\n" +
-                "      \"fieldName\" : \"total_usage\"\n" +
-                "    } ]\n" +
-                "  } ],\n" +
-                "  \"intervals\" : [ \"2012-01-01T00:00:00.000/2012-01-03T00:00:00.000\" ]\n" +
-                "}";
+                        "  \"queryType\" : \"groupBy\",\n" +
+                        "  \"dataSource\" : {\n" +
+                        "    \"type\" : \"query\",\n" +
+                        "    \"query\" : {\n" +
+                        "      \"queryType\" : \"groupBy\",\n" +
+                        "      \"dataSource\" : {\n" +
+                        "        \"type\" : \"table\",\n" +
+                        "        \"name\" : \"sample_datasource\"\n" +
+                        "      },\n" +
+                        "      \"dimensions\" : [ {\n" +
+                        "        \"type\" : \"default\",\n" +
+                        "        \"dimension\" : \"country\"\n" +
+                        "      }, {\n" +
+                        "        \"type\" : \"listFiltered\",\n" +
+                        "        \"delegate\" : {\n" +
+                        "          \"type\" : \"default\",\n" +
+                        "          \"dimension\" : \"device\"\n" +
+                        "        },\n" +
+                        "        \"values\" : [ \"iPhone\" ],\n" +
+                        "        \"isWhitelist\" : true\n" +
+                        "      } ],\n" +
+                        "      \"limitSpec\" : {\n" +
+                        "        \"type\" : \"default\",\n" +
+                        "        \"limit\" : 500,\n" +
+                        "        \"columns\" : [ {\n" +
+                        "          \"dimension\" : {\n" +
+                        "            \"type\" : \"default\",\n" +
+                        "            \"dimension\" : \"country\"\n" +
+                        "          }\n" +
+                        "        }, {\n" +
+                        "          \"dimension\" : {\n" +
+                        "            \"type\" : \"default\",\n" +
+                        "            \"dimension\" : \"data_transfer\"\n" +
+                        "          }\n" +
+                        "        } ]\n" +
+                        "      },\n" +
+                        "      \"having\" : {\n" +
+                        "        \"type\" : \"greaterThan\",\n" +
+                        "        \"aggregation\" : \"total_usage\",\n" +
+                        "        \"value\" : 100\n" +
+                        "      },\n" +
+                        "      \"granularity\" : \"day\",\n" +
+                        "      \"filter\" : {\n" +
+                        "        \"type\" : \"and\",\n" +
+                        "        \"fields\" : [ {\n" +
+                        "          \"type\" : \"selector\",\n" +
+                        "          \"dimension\" : \"carrier\",\n" +
+                        "          \"value\" : \"AT&T\"\n" +
+                        "        }, {\n" +
+                        "          \"type\" : \"or\",\n" +
+                        "          \"fields\" : [ {\n" +
+                        "            \"type\" : \"selector\",\n" +
+                        "            \"dimension\" : \"make\",\n" +
+                        "            \"value\" : \"Apple\"\n" +
+                        "          }, {\n" +
+                        "            \"type\" : \"selector\",\n" +
+                        "            \"dimension\" : \"make\",\n" +
+                        "            \"value\" : \"Samsung\"\n" +
+                        "          } ]\n" +
+                        "        } ]\n" +
+                        "      },\n" +
+                        "      \"aggregations\" : [ {\n" +
+                        "        \"type\" : \"longSum\",\n" +
+                        "        \"name\" : \"user_count\",\n" +
+                        "        \"fieldName\" : \"total_usage\"\n" +
+                        "      }, {\n" +
+                        "        \"type\" : \"doubleSum\",\n" +
+                        "        \"name\" : \"data_transfer\",\n" +
+                        "        \"fieldName\" : \"data_transfer\"\n" +
+                        "      } ],\n" +
+                        "      \"postAggregations\" : [ {\n" +
+                        "        \"type\" : \"arithmetic\",\n" +
+                        "        \"name\" : \"avg_usage\",\n" +
+                        "        \"fn\" : \"/\",\n" +
+                        "        \"fields\" : [ {\n" +
+                        "          \"type\" : \"fieldAccess\",\n" +
+                        "          \"fieldName\" : \"data_transfer\"\n" +
+                        "        }, {\n" +
+                        "          \"type\" : \"fieldAccess\",\n" +
+                        "          \"fieldName\" : \"total_usage\"\n" +
+                        "        } ]\n" +
+                        "      } ],\n" +
+                        "      \"intervals\" : [ \"2012-01-01T00:00:00.000/2012-01-03T00:00:00.000\" ]\n" +
+                        "    }\n" +
+                        "  },\n" +
+                        "  \"dimensions\" : [ {\n" +
+                        "    \"type\" : \"default\",\n" +
+                        "    \"dimension\" : \"country\"\n" +
+                        "  }, {\n" +
+                        "    \"type\" : \"listFiltered\",\n" +
+                        "    \"delegate\" : {\n" +
+                        "      \"type\" : \"default\",\n" +
+                        "      \"dimension\" : \"device\"\n" +
+                        "    },\n" +
+                        "    \"values\" : [ \"iPhone\" ],\n" +
+                        "    \"isWhitelist\" : true\n" +
+                        "  } ],\n" +
+                        "  \"limitSpec\" : {\n" +
+                        "    \"type\" : \"default\",\n" +
+                        "    \"limit\" : 500,\n" +
+                        "    \"columns\" : [ {\n" +
+                        "      \"dimension\" : {\n" +
+                        "        \"type\" : \"default\",\n" +
+                        "        \"dimension\" : \"country\"\n" +
+                        "      }\n" +
+                        "    }, {\n" +
+                        "      \"dimension\" : {\n" +
+                        "        \"type\" : \"default\",\n" +
+                        "        \"dimension\" : \"data_transfer\"\n" +
+                        "      }\n" +
+                        "    } ]\n" +
+                        "  },\n" +
+                        "  \"having\" : {\n" +
+                        "    \"type\" : \"greaterThan\",\n" +
+                        "    \"aggregation\" : \"total_usage\",\n" +
+                        "    \"value\" : 100\n" +
+                        "  },\n" +
+                        "  \"granularity\" : \"day\",\n" +
+                        "  \"filter\" : {\n" +
+                        "    \"type\" : \"and\",\n" +
+                        "    \"fields\" : [ {\n" +
+                        "      \"type\" : \"selector\",\n" +
+                        "      \"dimension\" : \"carrier\",\n" +
+                        "      \"value\" : \"AT&T\"\n" +
+                        "    }, {\n" +
+                        "      \"type\" : \"or\",\n" +
+                        "      \"fields\" : [ {\n" +
+                        "        \"type\" : \"selector\",\n" +
+                        "        \"dimension\" : \"make\",\n" +
+                        "        \"value\" : \"Apple\"\n" +
+                        "      }, {\n" +
+                        "        \"type\" : \"selector\",\n" +
+                        "        \"dimension\" : \"make\",\n" +
+                        "        \"value\" : \"Samsung\"\n" +
+                        "      } ]\n" +
+                        "    } ]\n" +
+                        "  },\n" +
+                        "  \"aggregations\" : [ {\n" +
+                        "    \"type\" : \"longSum\",\n" +
+                        "    \"name\" : \"user_count\",\n" +
+                        "    \"fieldName\" : \"total_usage\"\n" +
+                        "  }, {\n" +
+                        "    \"type\" : \"doubleSum\",\n" +
+                        "    \"name\" : \"data_transfer\",\n" +
+                        "    \"fieldName\" : \"data_transfer\"\n" +
+                        "  } ],\n" +
+                        "  \"postAggregations\" : [ {\n" +
+                        "    \"type\" : \"arithmetic\",\n" +
+                        "    \"name\" : \"avg_usage\",\n" +
+                        "    \"fn\" : \"/\",\n" +
+                        "    \"fields\" : [ {\n" +
+                        "      \"type\" : \"fieldAccess\",\n" +
+                        "      \"fieldName\" : \"data_transfer\"\n" +
+                        "    }, {\n" +
+                        "      \"type\" : \"fieldAccess\",\n" +
+                        "      \"fieldName\" : \"total_usage\"\n" +
+                        "    } ]\n" +
+                        "  } ],\n" +
+                        "  \"intervals\" : [ \"2012-01-01T00:00:00.000/2012-01-03T00:00:00.000\" ]\n" +
+                        "}";
         assertEquals(expected, json);
     }
 
