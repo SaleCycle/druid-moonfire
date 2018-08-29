@@ -29,12 +29,12 @@ public class ListFilteredDimensionSpec extends DimensionSpec {
         return this;
     }
 
-    public boolean isWhitelist() {
+    public boolean getIsWhitelist() {
         return isWhitelist;
     }
 
-    public ListFilteredDimensionSpec setWhitelist(boolean whitelist) {
-        isWhitelist = whitelist;
+    public ListFilteredDimensionSpec setIsWhitelist(boolean isWhitelist) {
+        this.isWhitelist = isWhitelist;
         return this;
     }
 }
