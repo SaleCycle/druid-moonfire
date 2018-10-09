@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.salecycle.moonfire.queries.models.OutputType;
 import com.salecycle.moonfire.queries.models.aggregations.Aggregation;
 import com.salecycle.moonfire.queries.models.aggregations.DoubleSumAggregation;
 import com.salecycle.moonfire.queries.models.aggregations.LongSumAggregation;
@@ -19,6 +20,8 @@ import com.salecycle.moonfire.queries.models.postaggregations.FieldAccessPostAgg
 import com.salecycle.moonfire.queries.models.postaggregations.PostAggregation;
 import com.salecycle.moonfire.queries.models.topnmetricspecs.NumericTopNMetricSpec;
 import com.salecycle.moonfire.queries.models.topnmetricspecs.TopNMetricSpec;
+import com.salecycle.moonfire.queries.models.virtualcolumns.ExpressionVirtualColumn;
+import com.salecycle.moonfire.queries.models.virtualcolumns.VirtualColumn;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -39,6 +42,9 @@ public class TopNQueryTest {
         DimensionSpec dimension = new DefaultDimension().setDimension("sample_dim");
         int threshold = 5;
         TopNMetricSpec topNMetricSpec = new NumericTopNMetricSpec("count");
+        List<VirtualColumn> virtualColumns = new ArrayList<VirtualColumn>() {{
+            add(new ExpressionVirtualColumn().setName("value").setExpression("if(id!='myId', 0, value)").setOutputType(OutputType.FLOAT));
+        }};
         List<Aggregation> aggregations = new ArrayList<Aggregation>() {{
             add(new LongSumAggregation().setFieldName("count").setName("count"));
             add(new DoubleSumAggregation().setFieldName("some_metric").setName("some_metric"));
@@ -55,6 +61,7 @@ public class TopNQueryTest {
                 .addField(new SelectorFilter().setDimension("dim2").setValue("some_other_val"));
 
         TopNQuery query = new TopNQuery(new TableDataSource("sample_datasource"), intervals, granularity, dimension, threshold, topNMetricSpec)
+                .setVirtualColumns(virtualColumns)
                 .setAggregations(aggregations)
                 .setPostAggregations(postAggregations)
                 .setFilter(filter);
@@ -81,6 +88,12 @@ public class TopNQueryTest {
                 "      \"value\" : \"some_other_val\"\n" +
                 "    } ]\n" +
                 "  },\n" +
+                "  \"virtualColumns\" : [ {\n" +
+                "    \"type\" : \"expression\",\n" +
+                "    \"name\" : \"value\",\n" +
+                "    \"expression\" : \"if(id!='myId', 0, value)\",\n" +
+                "    \"outputType\" : \"FLOAT\"\n" +
+                "  } ],\n" +
                 "  \"aggregations\" : [ {\n" +
                 "    \"type\" : \"longSum\",\n" +
                 "    \"name\" : \"count\",\n" +
