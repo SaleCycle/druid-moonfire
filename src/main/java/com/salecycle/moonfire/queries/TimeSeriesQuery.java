@@ -6,6 +6,7 @@ import com.salecycle.moonfire.queries.models.datasources.DataSource;
 import com.salecycle.moonfire.queries.models.filters.Filter;
 import com.salecycle.moonfire.queries.models.granularities.Granularity;
 import com.salecycle.moonfire.queries.models.postaggregations.PostAggregation;
+import com.salecycle.moonfire.queries.models.virtualcolumns.VirtualColumn;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ public class TimeSeriesQuery {
     private DataSource dataSource;
     private Granularity granularity;
     private boolean descending;
+    private List<VirtualColumn> virtualColumns;
     private List<String> intervals;
     private Filter filter;
     private List<Aggregation> aggregations;
@@ -54,6 +56,15 @@ public class TimeSeriesQuery {
 
     public TimeSeriesQuery setDescending(boolean descending) {
         this.descending = descending;
+        return this;
+    }
+
+    public List<VirtualColumn> getVirtualColumns() {
+        return virtualColumns;
+    }
+
+    public TimeSeriesQuery setVirtualColumns(List<VirtualColumn> virtualColumns) {
+        this.virtualColumns = virtualColumns;
         return this;
     }
 

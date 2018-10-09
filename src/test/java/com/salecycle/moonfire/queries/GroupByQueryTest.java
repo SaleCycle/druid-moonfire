@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.salecycle.moonfire.queries.models.OutputType;
 import com.salecycle.moonfire.queries.models.aggregations.Aggregation;
 import com.salecycle.moonfire.queries.models.aggregations.DoubleSumAggregation;
 import com.salecycle.moonfire.queries.models.aggregations.LongSumAggregation;
@@ -26,6 +27,8 @@ import com.salecycle.moonfire.queries.models.limits.OrderByColumnSpec;
 import com.salecycle.moonfire.queries.models.postaggregations.ArithmeticPostAggregation;
 import com.salecycle.moonfire.queries.models.postaggregations.FieldAccessPostAggregation;
 import com.salecycle.moonfire.queries.models.postaggregations.PostAggregation;
+import com.salecycle.moonfire.queries.models.virtualcolumns.ExpressionVirtualColumn;
+import com.salecycle.moonfire.queries.models.virtualcolumns.VirtualColumn;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -46,6 +49,9 @@ public class GroupByQueryTest {
         List<DimensionSpec> dimensionSpecs = new ArrayList<DimensionSpec>() {{
             add(new DefaultDimension().setDimension("country"));
             add(new DefaultDimension().setDimension("device"));
+        }};
+        List<VirtualColumn> virtualColumns = new ArrayList<VirtualColumn>() {{
+           add(new ExpressionVirtualColumn().setName("value").setExpression("if(id!='myId', 0, value)").setOutputType(OutputType.FLOAT));
         }};
         LimitSpec limitSpec = new DefaultLimitSpec().setLimit(500).setColumns(new ArrayList<OrderByColumnSpec>() {{
             add(new OrderByColumnSpec().setDimension(new DefaultDimension().setDimension("country")));
@@ -73,6 +79,7 @@ public class GroupByQueryTest {
         GroupByQuery query = new GroupByQuery(new TableDataSource("sample_datasource"), intervals, granularity, dimensionSpecs)
                 .setLimitSpec(limitSpec)
                 .setFilter(filter)
+                .setVirtualColumns(virtualColumns)
                 .setAggregations(aggregations)
                 .setPostAggregations(postAggregations)
                 .setHaving(havingSpec);
@@ -91,6 +98,12 @@ public class GroupByQueryTest {
                 "  }, {\n" +
                 "    \"type\" : \"default\",\n" +
                 "    \"dimension\" : \"device\"\n" +
+                "  } ],\n" +
+                "  \"virtualColumns\" : [ {\n" +
+                "    \"type\" : \"expression\",\n" +
+                "    \"name\" : \"value\",\n" +
+                "    \"expression\" : \"if(id!='myId', 0, value)\",\n" +
+                "    \"outputType\" : \"FLOAT\"\n" +
                 "  } ],\n" +
                 "  \"limitSpec\" : {\n" +
                 "    \"type\" : \"default\",\n" +

@@ -9,6 +9,7 @@ import com.salecycle.moonfire.queries.models.granularities.Granularity;
 import com.salecycle.moonfire.queries.models.havingspecs.HavingSpec;
 import com.salecycle.moonfire.queries.models.limits.LimitSpec;
 import com.salecycle.moonfire.queries.models.postaggregations.PostAggregation;
+import com.salecycle.moonfire.queries.models.virtualcolumns.VirtualColumn;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class GroupByQuery {
     private final String queryType = "groupBy";
     private DataSource dataSource;
     private List<DimensionSpec> dimensions;
+    private List<VirtualColumn> virtualColumns;
     private LimitSpec limitSpec;
     private HavingSpec having;
     private Granularity granularity;
@@ -56,6 +58,15 @@ public class GroupByQuery {
 
     public GroupByQuery setDimensions(List<DimensionSpec> dimensions) {
         this.dimensions = dimensions;
+        return this;
+    }
+
+    public List<VirtualColumn> getVirtualColumns() {
+        return virtualColumns;
+    }
+
+    public GroupByQuery setVirtualColumns(List<VirtualColumn> virtualColumns) {
+        this.virtualColumns = virtualColumns;
         return this;
     }
 

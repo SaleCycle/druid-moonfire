@@ -8,6 +8,7 @@ import com.salecycle.moonfire.queries.models.filters.Filter;
 import com.salecycle.moonfire.queries.models.granularities.Granularity;
 import com.salecycle.moonfire.queries.models.postaggregations.PostAggregation;
 import com.salecycle.moonfire.queries.models.topnmetricspecs.TopNMetricSpec;
+import com.salecycle.moonfire.queries.models.virtualcolumns.VirtualColumn;
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class TopNQuery {
     private List<String> intervals;
     private Granularity granularity;
     private Filter filter;
+    private List<VirtualColumn> virtualColumns;
     private List<Aggregation> aggregations;
     private List<PostAggregation> postAggregations;
     private DimensionSpec dimension;
@@ -70,6 +72,15 @@ public class TopNQuery {
 
     public TopNQuery setFilter(Filter filter) {
         this.filter = filter;
+        return this;
+    }
+
+    public List<VirtualColumn> getVirtualColumns() {
+        return virtualColumns;
+    }
+
+    public TopNQuery setVirtualColumns(List<VirtualColumn> virtualColumns) {
+        this.virtualColumns = virtualColumns;
         return this;
     }
 

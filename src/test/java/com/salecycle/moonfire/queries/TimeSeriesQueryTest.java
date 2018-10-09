@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.salecycle.moonfire.queries.models.OutputType;
 import com.salecycle.moonfire.queries.models.aggregations.Aggregation;
 import com.salecycle.moonfire.queries.models.aggregations.DoubleSumAggregation;
 import com.salecycle.moonfire.queries.models.aggregations.LongSumAggregation;
@@ -16,6 +17,8 @@ import com.salecycle.moonfire.queries.models.granularities.Granularity;
 import com.salecycle.moonfire.queries.models.postaggregations.ArithmeticPostAggregation;
 import com.salecycle.moonfire.queries.models.postaggregations.FieldAccessPostAggregation;
 import com.salecycle.moonfire.queries.models.postaggregations.PostAggregation;
+import com.salecycle.moonfire.queries.models.virtualcolumns.ExpressionVirtualColumn;
+import com.salecycle.moonfire.queries.models.virtualcolumns.VirtualColumn;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -33,12 +36,15 @@ public class TimeSeriesQueryTest {
 
         List<String> intervals = Collections.singletonList("2012-01-01T00:00:00.000/2012-01-03T00:00:00.000");
         Granularity granularity = Granularity.day;
+        List<VirtualColumn> virtualColumns = new ArrayList<VirtualColumn>() {{
+            add(new ExpressionVirtualColumn().setName("value").setExpression("if(id!='myId', 0, value)").setOutputType(OutputType.FLOAT));
+        }};
         List<Aggregation> aggregations = new ArrayList<Aggregation>() {{
             add(new LongSumAggregation().setFieldName("sample_fieldName1").setName("sample_name1"));
             add(new DoubleSumAggregation().setFieldName("sample_fieldName2").setName("sample_name2"));
         }};
         List<PostAggregation> fields = new ArrayList<PostAggregation>() {{
-           add(new FieldAccessPostAggregation().setFieldName("sample_name1").setName("postAgg__sample_name1"));
+            add(new FieldAccessPostAggregation().setFieldName("sample_name1").setName("postAgg__sample_name1"));
             add(new FieldAccessPostAggregation().setFieldName("sample_name2").setName("postAgg__sample_name2"));
         }};
         List<PostAggregation> postAggregations = new ArrayList<PostAggregation>() {{
@@ -54,6 +60,7 @@ public class TimeSeriesQueryTest {
         TimeSeriesQuery query = new TimeSeriesQuery(new TableDataSource("sample_datasource"), intervals, granularity)
                 .setDescending(true)
                 .setFilter(filter)
+                .setVirtualColumns(virtualColumns)
                 .setAggregations(aggregations)
                 .setPostAggregations(postAggregations);
 
@@ -67,6 +74,12 @@ public class TimeSeriesQueryTest {
                 "  },\n" +
                 "  \"granularity\" : \"day\",\n" +
                 "  \"descending\" : true,\n" +
+                "  \"virtualColumns\" : [ {\n" +
+                "    \"type\" : \"expression\",\n" +
+                "    \"name\" : \"value\",\n" +
+                "    \"expression\" : \"if(id!='myId', 0, value)\",\n" +
+                "    \"outputType\" : \"FLOAT\"\n" +
+                "  } ],\n" +
                 "  \"intervals\" : [ \"2012-01-01T00:00:00.000/2012-01-03T00:00:00.000\" ],\n" +
                 "  \"filter\" : {\n" +
                 "    \"type\" : \"and\",\n" +
