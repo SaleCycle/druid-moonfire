@@ -4,7 +4,7 @@
 
     <groupId>com.salecycle</groupId>
     <artifactId>moonfire</artifactId>
-    <version>0.4.3-SNAPSHOT</version>
+    <version>0.4.3</version>
     <packaging>jar</packaging>
     <name>Moonfire</name>
     <description>A java library for crafting Druid queries</description>
@@ -31,7 +31,7 @@
         <connection>scm:git:git@github.com:SaleCycle/druid-moonfire.git</connection>
         <developerConnection>scm:git:git@github.com:SaleCycle/druid-moonfire.git</developerConnection>
         <url>https://github.com/SaleCycle/druid-moonfire</url>
-      <tag>HEAD</tag>
+      <tag>v0.4.3</tag>
   </scm>
 
     <distributionManagement>
