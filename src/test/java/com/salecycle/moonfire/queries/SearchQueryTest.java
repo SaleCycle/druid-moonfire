@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.salecycle.moonfire.queries.models.Ordering;
 import com.salecycle.moonfire.queries.models.datasources.TableDataSource;
-import com.salecycle.moonfire.queries.models.granularities.Granularity;
+import com.salecycle.moonfire.queries.models.granularities.SimpleGranularity;
 import com.salecycle.moonfire.queries.models.searchqueryspecs.ContainsSearchQuerySpec;
 import com.salecycle.moonfire.queries.models.searchqueryspecs.SearchQuerySpec;
 import org.junit.Test;
@@ -24,7 +24,7 @@ public class SearchQueryTest {
         ObjectWriter writer = mapper.writerFor(SearchQuery.class);
 
         List<String> intervals = Collections.singletonList("2012-01-01T00:00:00.000/2012-01-03T00:00:00.000");
-        Granularity granularity = Granularity.day;
+        SimpleGranularity granularity = SimpleGranularity.day;
         SearchQuerySpec searchQuerySpec = new ContainsSearchQuerySpec().setCase_sensitive(true).setValue("sample_value");
 
         SearchQuery query = new SearchQuery(new TableDataSource("sample_datasource"), intervals, granularity, searchQuerySpec)

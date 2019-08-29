@@ -14,7 +14,7 @@ import com.salecycle.moonfire.queries.models.dimensionspecs.DimensionSpec;
 import com.salecycle.moonfire.queries.models.filters.AndFilter;
 import com.salecycle.moonfire.queries.models.filters.Filter;
 import com.salecycle.moonfire.queries.models.filters.SelectorFilter;
-import com.salecycle.moonfire.queries.models.granularities.Granularity;
+import com.salecycle.moonfire.queries.models.granularities.SimpleGranularity;
 import com.salecycle.moonfire.queries.models.postaggregations.ArithmeticPostAggregation;
 import com.salecycle.moonfire.queries.models.postaggregations.FieldAccessPostAggregation;
 import com.salecycle.moonfire.queries.models.postaggregations.PostAggregation;
@@ -38,7 +38,7 @@ public class TopNQueryTest {
         ObjectWriter writer = mapper.writerFor(TopNQuery.class);
 
         List<String> intervals = Collections.singletonList("2013-08-31T00:00:00.000/2013-09-03T00:00:00.000");
-        Granularity granularity = Granularity.all;
+        SimpleGranularity granularity = SimpleGranularity.all;
         DimensionSpec dimension = new DefaultDimension().setDimension("sample_dim");
         int threshold = 5;
         TopNMetricSpec topNMetricSpec = new NumericTopNMetricSpec("count");

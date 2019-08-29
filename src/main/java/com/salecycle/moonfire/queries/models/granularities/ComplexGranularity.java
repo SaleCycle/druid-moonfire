@@ -1,6 +1,6 @@
 package com.salecycle.moonfire.queries.models.granularities;
 
-public abstract class ComplexGranularity {
+public abstract class ComplexGranularity implements Granularity {
     private String type;
     private String origin;
 
@@ -16,7 +16,8 @@ public abstract class ComplexGranularity {
         return origin;
     }
 
-    public void setOrigin(String origin) {
+    public ComplexGranularity setOrigin(String origin) {
         this.origin = origin;
+        return this;
     }
 }
