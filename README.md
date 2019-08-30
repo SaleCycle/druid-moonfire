@@ -37,7 +37,7 @@ example output:
 example input:
 ```Java
 List<String> intervals = Collections.singletonList("2012-01-01T00:00:00.000/2012-01-03T00:00:00.000");
-Granularity granularity = Granularity.day;
+Granularity granularity = SimpleGranularity.day;
 List<DimensionSpec> dimensionSpecs = new ArrayList<DimensionSpec>() {{
     add(new DefaultDimension().setDimension("country"));
     add(new DefaultDimension().setDimension("device"));
@@ -156,7 +156,7 @@ example output:
 example input:
 ```Java
 List<String> intervals = Collections.singletonList("2012-01-01T00:00:00.000/2012-01-03T00:00:00.000");
-Granularity granularity = Granularity.day;
+Granularity granularity = SimpleGranularity.day;
 SearchQuerySpec searchQuerySpec = new ContainsSearchQuerySpec().setCase_sensitive(true).setValue("sample_value");
 
 SearchQuery query = new SearchQuery(new TableDataSource("sample_datasource"), intervals, granularity, searchQuerySpec)
@@ -291,7 +291,7 @@ example output:
 example input: 
 ```Java
 List<String> intervals = Collections.singletonList("2012-01-01T00:00:00.000/2012-01-03T00:00:00.000");
-Granularity granularity = Granularity.day;
+Granularity granularity = SimpleGranularity.day;
 List<Aggregation> aggregations = new ArrayList<Aggregation>() {{
     add(new LongSumAggregation().setFieldName("sample_fieldName1").setName("sample_name1"));
     add(new DoubleSumAggregation().setFieldName("sample_fieldName2").setName("sample_name2"));
@@ -376,7 +376,7 @@ example output:
 example input:
 ```Java
 List<String> intervals = Collections.singletonList("2013-08-31T00:00:00.000/2013-09-03T00:00:00.000");
-Granularity granularity = Granularity.all;
+Granularity granularity = SimpleGranularity.all;
 DimensionSpec dimension = new DefaultDimension().setDimension("sample_dim");
 int threshold = 5;
 TopNMetricSpec topNMetricSpec = new NumericTopNMetricSpec("count");
